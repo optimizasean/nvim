@@ -168,7 +168,11 @@ set backspace=eol,start,indent
 " Nothing here at the moment
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                             "
+"                                                             "
 "                       PLUGINS                               "
+"                                                             "
+"                                                             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "            Vim Website https://www.vim.org/                 "
 "           VimAwesome https://vimawesome.com/                "
@@ -390,5 +394,52 @@ Plug 'tpope/vim-fugitive'
 " Finish installing plugins with vim-plug                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Begin configuring plugins from vim-plug                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure nvim-treesitter                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = {},  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure nvim-ts-rainbow                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
+}
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End configuring plugins from vim-plug                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                             "
+"                                                             "
+"                     END PLUGINS                             "
+"                                                             "
+"                                                             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
