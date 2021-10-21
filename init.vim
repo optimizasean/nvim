@@ -178,6 +178,86 @@ call plug#begin('~/.config/nvim/plugins')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ale                                                         "
+" Asynchronus Lint Engine                                     "
+" https://github.com/w0rp/ale                                 "
+" https://vimawesome.com/plugin/ale                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+" Is this guy called dense-analysis now?
+Plug 'w0rp/ale'
+
+" Disabling highlighting
+let g:ale_set_highlights = 0
+
+" Enable ALE code completion - do not turn on if using ALE as completion source for other plugins
+let g:ale_completion_enabled = 1
+
+" Only run linting when saving the file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+
+" Set Linters for ALE
+let g:ale_fixers = {}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-treesitter
+" nvim-treesitter.vim
+" https://github.com/nvim-treesitter/nvim-treesitter
+" https://vimawesome.com/plugin/nvim-treesitter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'nvim-treesitter/nvim-treesitter'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-ts-rainbow
+" rainbow.vim
+" https://github.com/p00f/nvim-ts-rainbow
+" https://vimawesome.com/plugin/nvim-ts-rainbow
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'p00f/nvim-ts-rainbow'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fzf                                                         "
+" fzf.vim                                                     "
+" https://github.com/junegunn/fzf                             "
+" https://vimawesome.com/plugin/fzf                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'junegunn/fzf'
+
+" Note: Pure fzf wrapper of terminal utility, no commands
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fzf:heart:vim                                               "
+" fzf.vim                                                     "
+" https://github.com/junegunn/fzf.vim                         "
+" https://vimawesome.com/plugin/fzf-vim                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'junegunn/fzf.vim'
+
+" Wrapper of fzf adding command assistance
+" Requires fzf 0.23.0 or higher to be installed: https://github.com/junegunn/fzf
+" Note: Ag requires the silver searcher (ag): https://github.com/ggreer/the_silver_searcher
+" Note: Rg requires ripgrep (rg): https://github.com/BurntSushi/ripgrep
+" Note: Tags and Helptags require Perl
+" Note: For syntax highlighted preview, install bat: https://github.com/sharkdp/bat
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MRU                                                        "
+" mru.vim                                                    "
+" git clone https://github.com/vim-scripts/mru.vim           "
+" https://vimawesome.com/plugin/mru-vim                      "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'yegappan/mru'
+
+" let MRU_Max_Entries = 400
+map <Leader>f :MRU<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The Nerd Tree                                               "
 " https://github.com/scrooloose/nerdtree                      "
 " https://vimawesome.com/plugin/nerdtree-red                  "
@@ -193,30 +273,6 @@ let g:NERDTreeWinSize=35
 map <Leader>nn :NERDTreeToggle<CR>
 map <Leader>nb :NERDTreeFromBookmark<Space>
 map <Leader>nf :NERDTreeFind<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MRU                                                        "
-" mru.vim                                                    "
-" git clone https://github.com/vim-scripts/mru.vim           "
-" https://vimawesome.com/plugin/mru-vim                      "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'yegappan/mru'
-
-" let MRU_Max_Entries = 400
-map <Leader>f :MRU<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YankStack                                                   "
-" https://github.com/maxbrunsfeld/vim-yankstack               "
-" https://vimawesome.com/plugin/yankstack                     "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-" Plug 'maxbrunsfeld/vim-yankstack'
-
-" let g:yankstack_yank_keys = ['y', 'd']
-" nmap <C-p> <Plug>yankstack_substitute_older_paste
-" nmap <C-n> <Plug>yankstack_substitute_newer_paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim visual multi                                            "
@@ -310,28 +366,6 @@ let g:VM_maps["Toggle Single Region"]        = '\\<CR>'
 let g:VM_maps["Toggle Multiline"]            = '\\M'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ale                                                         "
-" Asynchronus Lint Engine                                     "
-" https://github.com/w0rp/ale                                 "
-" https://vimawesome.com/plugin/ale                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Is this guy called dense-analysis now?
-Plug 'w0rp/ale'
-
-" Disabling highlighting
-let g:ale_set_highlights = 0
-
-" Enable ALE code completion - do not turn on if using ALE as completion source for other plugins
-let g:ale_completion_enabled = 1
-
-" Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-
-" Set Linters for ALE
-let g:ale_fixers = {}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline                                                     "
 " vim-airline-superman                                        "
 " https://github.com/vim-airline/vim-airline                  "
@@ -351,108 +385,6 @@ Plug 'tpope/vim-fugitive'
 
 " Fugitive .git/tags support removed in favor of `:set tags^=./.git/tags;`
 :set tags^=./.git/tags;
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-surround                                                "
-" surround.vim                                                "
-" https://github.com/tpope/vim-surround                       "
-" https://vimawesome.com/plugin/surround-vim                  "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'tpope/vim-surround'
-
-" set to 0 if you want to enable it later via :RainbowToggle or 1 to be always active
-let g:rainbow_active = 0
-
-map <Leader><Ctrl-r> :RainbowToggle
-
-" Configure for custom colors and behaviors - defaults below
-" let g:rainbow_conf = {
-" \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-" \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-" \    'guis': [''],
-" \    'cterms': [''],
-" \    'operators': '_,_',
-" \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-" \    'separately': {
-" \        '*': {},
-" \        'markdown': {
-" \            'parentheses_options': 'containedin=markdownCode contained', "enable rainbow for code blocks only
-" \        },
-" \        'lisp': {
-" \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'], "lisp needs more colors for parentheses :)
-" \        },
-" \        'haskell': {
-" \            'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'], "the haskell lang pragmas should be excluded
-" \        },
-" \        'vim': {
-" \            'parentheses_options': 'containedin=vimFuncBody', "enable rainbow inside vim function body
-" \        },
-" \        'perl': {
-" \            'syn_name_prefix': 'perlBlockFoldRainbow', "solve the [perl indent-depending-on-syntax problem](https://github.com/luochen1990/rainbow/issues/20)
-" \        },
-" \        'stylus': {
-" \            'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'], "[vim css color](https://github.com/ap/vim-css-color) compatibility
-" \        },
-" \        'css': 0, "disable this plugin for css files
-" \    }
-" \}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-floaterm                                                "
-" floaterm.vim                                                "
-" https://github.com/voldikss/vim-floaterm                    "
-" https://vimawesome.com/plugin/vim-floaterm                  "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-" Plug 'voldikss/vim-floaterm'
-" let g:floaterm_keymap_new = '<Leader>tn'
-" let g:floaterm_keymap_kill = '<Leader>tk'
-" let g:floaterm_keymap_toggle = '<Leader>tt'
-" let g:floaterm_keymap_show = '<Leader>ts'
-" let g:floaterm_keymap_hide = '<Leader>th'
-" let g:floaterm_keymap_next = '<Leader>t]'
-" let g:floaterm_keymap_prev = '<Leader>t['
-" let g:floaterm_keymap_first = '<Leader>t<'
-" let g:floaterm_keymap_last = '<Leader>t>'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" commentary.vim                                              "
-" commentary.vim                                              "
-" https://github.com/tpope/vim-commentary                     "
-" https://vimawesome.com/plugin/commentary-vim                "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-" Plug 'tpope/vim-commentary'
-
-" To add more file types (example is apache which uses # and has a space after it:
-" autocmd FileType apache set commentstring=#\ %s
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf                                                         "
-" fzf.vim                                                     "
-" https://github.com/junegunn/fzf                             "
-" https://vimawesome.com/plugin/fzf                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Note: Pure fzf wrapper of terminal utility, no commands
-" Install Plugin
-Plug 'junegunn/fzf'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf:heart:vim                                               "
-" fzf.vim                                                     "
-" https://github.com/junegunn/fzf.vim                         "
-" https://vimawesome.com/plugin/fzf-vim                       "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'junegunn/fzf.vim'
-
-" Wrapper of fzf adding command assistance
-" Requires fzf 0.23.0 or higher to be installed: https://github.com/junegunn/fzf
-" Note: Ag requires the silver searcher (ag): https://github.com/ggreer/the_silver_searcher
-" Note: Rg requires ripgrep (rg): https://github.com/BurntSushi/ripgrep
-" Note: Tags and Helptags require Perl
-" Note: For syntax highlighted preview, install bat: https://github.com/sharkdp/bat
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Finish installing plugins with vim-plug                     "
