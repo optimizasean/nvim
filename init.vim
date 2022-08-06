@@ -211,7 +211,7 @@ let g:ale_fixers = {}
 " https://vimawesome.com/plugin/nvim-treesitter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Plugin
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-ts-rainbow
@@ -378,6 +378,36 @@ let g:VM_maps["Toggle Multiline"]            = '\\M'
 " Install Plugin
 Plug 'vim-airline/vim-airline'
 
+" Configure
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+    " unicode symbols
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.whitespace = 'Ξ'
+
+    " airline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive                                                    "
 " FUGITIVE.VIM                                                "
@@ -403,17 +433,28 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  -- ignore_install = {}, -- List of parsers to ignore installing
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  autopairs = {
+    enable = true,
+  },
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = {},  -- list of language that will be disabled
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    --disable = { "c", "rust" },
+
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
-  },
+  }
 }
 EOF
 
@@ -442,4 +483,3 @@ EOF
 "                                                             "
 "                                                             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
