@@ -182,14 +182,15 @@ call plug#begin('~/.config/nvim/plugins')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ale                                                         "
+" ALE                                                         "
 " Asynchronus Lint Engine                                     "
 " https://github.com/w0rp/ale                                 "
+" https://github.com/dense-analysis/ale                       "
 " https://vimawesome.com/plugin/ale                           "
+" Note: user is w0rp, organization is dense-analysis          "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Plugin
-" Is this guy called dense-analysis now?
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Disabling highlighting
 let g:ale_set_highlights = 0
@@ -222,33 +223,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Install Plugin
 Plug 'p00f/nvim-ts-rainbow'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf                                                         "
-" fzf.vim                                                     "
-" https://github.com/junegunn/fzf                             "
-" https://vimawesome.com/plugin/fzf                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'junegunn/fzf'
-
-" Note: Pure fzf wrapper of terminal utility, no commands
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf:heart:vim                                               "
-" fzf.vim                                                     "
-" https://github.com/junegunn/fzf.vim                         "
-" https://vimawesome.com/plugin/fzf-vim                       "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'junegunn/fzf.vim'
-
-" Wrapper of fzf adding command assistance
-" Requires fzf 0.23.0 or higher to be installed: https://github.com/junegunn/fzf
-" Note: Ag requires the silver searcher (ag): https://github.com/ggreer/the_silver_searcher
-" Note: Rg requires ripgrep (rg): https://github.com/BurntSushi/ripgrep
-" Note: Tags and Helptags require Perl
-" Note: For syntax highlighted preview, install bat: https://github.com/sharkdp/bat
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MRU                                                        "
 " mru.vim                                                    "
@@ -260,23 +234,6 @@ Plug 'yegappan/mru'
 
 " let MRU_Max_Entries = 400
 map <Leader>f :MRU<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The Nerd Tree                                               "
-" https://github.com/scrooloose/nerdtree                      "
-" https://vimawesome.com/plugin/nerdtree-red                  "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'scrooloose/nerdtree'
-
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-
-map <Leader>nn :NERDTreeToggle<CR>
-map <Leader>nb :NERDTreeFromBookmark<Space>
-map <Leader>nf :NERDTreeFind<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim visual multi                                            "
@@ -370,45 +327,6 @@ let g:VM_maps["Toggle Single Region"]        = '\\<CR>'
 let g:VM_maps["Toggle Multiline"]            = '\\M'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Airline                                                     "
-" vim-airline-superman                                        "
-" https://github.com/vim-airline/vim-airline                  "
-" https://vimawesome.com/plugin/vim-airline-superman          "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'vim-airline/vim-airline'
-
-" Configure
-" air-line
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-    " unicode symbols
-    let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
-    let g:airline_symbols.linenr = '␊'
-    let g:airline_symbols.linenr = '␤'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.paste = 'Þ'
-    let g:airline_symbols.paste = '∥'
-    let g:airline_symbols.whitespace = 'Ξ'
-
-    " airline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
-endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive                                                    "
 " FUGITIVE.VIM                                                "
 " https://github.com/tpope/vim-fugitive                       "
@@ -419,6 +337,49 @@ Plug 'tpope/vim-fugitive'
 
 " Fugitive .git/tags support removed in favor of `:set tags^=./.git/tags;`
 :set tags^=./.git/tags;
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-tree.lua                                               "
+" https://github.com/nvim-tree/nvim-tree.lua                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+
+" Open/Close/toggle/Refresh explorer
+nnoremap <leader>nn <cmd>NvimTreeToggle<cr>
+nnoremap <leader>no <cmd>NvimTreeOpen<cr>
+nnoremap <leader>nc <cmd>NvimTreeClose<cr>
+nnoremap <leader>nr <cmd>NvimTreeRefresh<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Lualine                                                     "
+" https://github.com/nvim-lualine/lualine.nvim                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'nvim-lualine/lualine.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" telescope.nvim                                              "
+" https://github.com/nvim-telescope/telescope.nvim            "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim' " Required dependency
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" diffview.nvim                                               "
+" https://github.com/sindrets/diffview.nvim                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'sindrets/diffview.nvim'
+Plug 'nvim-lua/plenary.nvim' " Required dependency
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Finish installing plugins with vim-plug                     "
@@ -469,6 +430,122 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
+  }
+}
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Lualine                                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure nvim-tree                                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Telescope                                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require('telescope').setup{
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    mappings = {
+      i = {
+        -- map actions.which_key to <C-h> (default: <C-/>)
+        -- actions.which_key shows the mappings for your picker,
+        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+        ["<C-h>"] = "which_key"
+      }
+    }
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+  },
+  extensions = {
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
   }
 }
 EOF
