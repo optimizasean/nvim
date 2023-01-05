@@ -13,6 +13,6 @@ Finally completing with lua configurations of the plugins.
 This is meant to be as neovim as possible.
 This is why there is a single file unlike the old vim git method of plugins
 with pathogen and plenty directories.
-If you are a vim user check out my [vim config](https://github.com/optimizasean/vim).
+If you are a vim user check out my [vim config](https://github.com/optimizasean/.vim).
 
 You may also like to look at my [tmux configuration](https://github.com/optimizasean/tmux).
