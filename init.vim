@@ -7,9 +7,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " System Settings                                             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable vim color syntax highlighting
-syntax on
-
 "Set special character for custom commands
 let mapleader = "\\"
 
@@ -18,6 +15,7 @@ let mapleader = "\\"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
+set nowritebackup
 
 " Turn off swapfile
 set noswapfile
@@ -44,6 +42,9 @@ set encoding=utf-8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interface Settings                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable vim color syntax highlighting
+syntax on
+
 " Show when vim is waiting for a followup motion key (i.e. leader + ?, d + ?, so on)
 set showcmd
 
@@ -59,11 +60,11 @@ set number
 " Highlight current line
 " set cursorline
 
+" Set column line for good coding guide
+" set cc=80
+
 " Show the statusline
 set laststatus=2
-
-" Highlight search results
-set hlsearch
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -73,6 +74,9 @@ set textwidth=0
 
 " Broken line prefix
 " set showbreak=+++
+
+" Make TTY faster
+set ttyfast
 
 " Disable highlight when <Leader><CR> is pressed - No Highlight
 map <silent> <Leader><CR> :noh<CR>
@@ -97,10 +101,24 @@ set expandtab
 
 " 1 tab == 4 spaces
 set tabstop=4
+
+" Treat 4 spaces as single backspace (like tab backspace)
+set softtabstop=4
+
+" Convert tabs to spaces
+set expandtab
+
+" Shift lines on shift command
 set shiftwidth=4
 
-" Auto indent`
+" Auto indent based on previous line
 set autoindent
+
+" Give bash like tab completions
+" set wildmode=longest,list
+
+" Auto indent based on file type and plugins
+" filetype plugin indent on
 
 " Tab settings for specific files
 " HTML - I prefer 4 for readability
@@ -145,11 +163,11 @@ set ignorecase
 " When searching try to be smart about cases
 set smartcase
 
-" Makes search act like search in modern browsers
-set incsearch
-
 " Highlight found searches
 set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell Check                                                 "
@@ -168,6 +186,14 @@ set backspace=eol,start,indent
 " Nothing here at the moment
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neovim                                                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable vi compatibility
+set nocompatible
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                                             "
 "                                                             "
 "                       PLUGINS                               "
@@ -180,30 +206,6 @@ set backspace=eol,start,indent
 " Start installing plugins using vim-plug
 call plug#begin('~/.config/nvim/plugins')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ALE                                                         "
-" Asynchronus Lint Engine                                     "
-" https://github.com/w0rp/ale                                 "
-" https://github.com/dense-analysis/ale                       "
-" https://vimawesome.com/plugin/ale                           "
-" Note: user is w0rp, organization is dense-analysis          "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'dense-analysis/ale'
-
-" Disabling highlighting
-let g:ale_set_highlights = 0
-
-" Enable ALE code completion - do not turn on if using ALE as completion source for other plugins
-let g:ale_completion_enabled = 1
-
-" Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-
-" Set Linters for ALE
-let g:ale_fixers = {}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-treesitter
@@ -374,12 +376,59 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hologram                                                    "
+" hologram.nvim                                               "
+" https://github.com/nvim-telescope/telescope.nvim            "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+"Plug 'edluffy/hologram.nvim'
+" Has issues at the moment with graphics not being aligned, overwriting,
+" following cursor and more
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " diffview.nvim                                               "
 " https://github.com/sindrets/diffview.nvim                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Plugin
 Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lua/plenary.nvim' " Required dependency
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Conquer of Completion                                       "
+" coc.nvim                                                    "
+" https://github.com/neoclide/coc.nvim                        "
+" Use marketplace to find extensions                          "
+" https://github.com/fannheyward/coc-marketplace              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'CocInstall coc-marketplace' }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ALE                                                         "
+" Asynchronus Lint Engine                                     "
+" https://github.com/w0rp/ale                                 "
+" https://github.com/dense-analysis/ale                       "
+" https://vimawesome.com/plugin/ale                           "
+" Note: user is w0rp, organization is dense-analysis          "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+"Plug 'dense-analysis/ale'
+
+" Disabling highlighting
+"let g:ale_set_highlights = 0
+
+" Enable ALE code completion - do not turn on if using ALE as completion source for other plugins
+"let g:ale_completion_enabled = 0
+
+" Only run linting when saving the file
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
+
+" Set linters and fixers for ALE
+"let g:ale_linters = {}
+"let g:ale_fixers = {}
+
+" Make omnifunc use ALE
+" set omnifunc=ale#completion#OmniFunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Finish installing plugins with vim-plug                     "
@@ -481,6 +530,15 @@ require'lualine'.setup {
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure hologram                                          "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"lua <<EOF
+"require'hologram'.setup{
+"    auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+"}
+"EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure nvim-tree                                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
@@ -548,6 +606,201 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Telescope                                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+-- Some servers have issues with backup files, see #649
+-- disabled myself anyways
+--vim.opt.backup = false
+--vim.opt.writebackup = false
+
+-- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
+-- delays and poor user experience
+vim.opt.updatetime = 300
+
+-- Always show the signcolumn, otherwise it would shift the text each time
+-- diagnostics appeared/became resolved
+-- I don't like this
+--vim.opt.signcolumn = "yes"
+
+local keyset = vim.keymap.set
+-- Autocomplete
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+
+-- Use Tab for trigger completion with characters ahead and navigate
+-- NOTE: There's always a completion item selected by default, you may want to enable
+-- no select by setting `"suggest.noselect": true` in your configuration file
+-- NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
+-- other plugins before putting this into your config
+local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+-- Make <CR> to accept selected completion item or notify coc.nvim to format
+-- <C-g>u breaks current undo, please make your own choice
+keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+
+-- Use <C-CR> to trigger snippets
+keyset("i", "<C-CR>", "<Plug>(coc-snippets-expand-jump)")
+-- Use <C-Space> to trigger completion
+keyset("i", "<C-Space>", "coc#refresh()", {silent = true, expr = true})
+
+-- Use `[g` and `]g` to navigate diagnostics
+-- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
+keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
+
+-- GoTo code navigation
+keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
+keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
+keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
+keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
+
+
+-- Use K to show documentation in preview window
+function _G.show_docs()
+    local cw = vim.fn.expand('<cword>')
+    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+    elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+    else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+    end
+end
+keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
+
+
+-- Highlight the symbol and its references on a CursorHold event(cursor is idle)
+-- No cursor - I don't like
+--vim.api.nvim_create_augroup("CocGroup", {})
+--vim.api.nvim_create_autocmd("CursorHold", {
+--    group = "CocGroup",
+--    command = "silent call CocActionAsync('highlight')",
+--    desc = "Highlight symbol under cursor on CursorHold"
+--})
+
+
+-- Symbol renaming - no renaming
+--keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+
+
+-- Formatting selected code - no formatting
+--keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
+--keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
+
+
+-- Setup formatexpr specified filetype(s)
+vim.api.nvim_create_autocmd("FileType", {
+--    group = "CocGroup",
+    pattern = "typescript,json",
+    command = "setl formatexpr=CocAction('formatSelected')",
+    desc = "Setup formatexpr specified filetype(s)."
+})
+
+-- Update signature help on jump placeholder
+vim.api.nvim_create_autocmd("User", {
+--    group = "CocGroup",
+    pattern = "CocJumpPlaceholder",
+    command = "call CocActionAsync('showSignatureHelp')",
+    desc = "Update signature help on jump placeholder"
+})
+
+-- Apply codeAction to the selected region
+-- Example: `<leader>aap` for current paragraph
+local opts = {silent = true, nowait = true}
+keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+
+-- Remap keys for apply code actions at the cursor position. - cursor sucks
+--keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+-- Remap keys for apply code actions affect whole buffer.
+--keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
+-- Remap keys for applying codeActions to the current buffer
+--keyset("n", "<leader>ac", "<Plug>(coc-codeaction)", opts)
+-- Apply the most preferred quickfix action on the current line.
+--keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
+
+-- Remap keys for apply refactor code actions. - maybe no like?
+--keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
+--keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+--keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+
+-- Run the Code Lens actions on the current line
+--keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
+
+
+-- Map function and class text objects
+-- NOTE: Requires 'textDocument.documentSymbol' support from the language server
+keyset("x", "if", "<Plug>(coc-funcobj-i)", opts)
+keyset("o", "if", "<Plug>(coc-funcobj-i)", opts)
+keyset("x", "af", "<Plug>(coc-funcobj-a)", opts)
+keyset("o", "af", "<Plug>(coc-funcobj-a)", opts)
+keyset("x", "ic", "<Plug>(coc-classobj-i)", opts)
+keyset("o", "ic", "<Plug>(coc-classobj-i)", opts)
+keyset("x", "ac", "<Plug>(coc-classobj-a)", opts)
+keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
+
+
+-- Remap <C-e> and <C-y> to scroll float windows/popups - Same as move screen (no move screen while scroll)
+---@diagnostic disable-next-line: redefined-local
+local opts = {silent = true, nowait = true, expr = true}
+keyset("n", "<C-e>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-e>"', opts)
+keyset("n", "<C-y>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-y>"', opts)
+keyset("i", "<C-e>",
+       'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
+keyset("i", "<C-y>",
+       'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
+keyset("v", "<C-e>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-e>"', opts)
+keyset("v", "<C-y>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-y>"', opts)
+
+
+-- Use CTRL-S for selections ranges
+-- Requires 'textDocument/selectionRange' support of language server
+keyset("n", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
+keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
+
+
+-- Add `:Format` command to format current buffer
+vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
+
+-- " Add `:Fold` command to fold current buffer
+vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
+
+-- Add `:OR` command for organize imports of the current buffer
+vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
+
+-- Add (Neo)Vim's native statusline support
+-- NOTE: Please see `:h coc-status` for integrations with external plugins that
+-- provide custom statusline: lightline.vim, vim-airline
+vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+
+-- Mappings for CoCList
+-- code actions and coc stuff
+---@diagnostic disable-next-line: redefined-local
+local opts = {silent = true, nowait = true}
+-- Show all diagnostics
+keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", opts)
+-- Manage extensions
+keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
+-- Show commands
+keyset("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
+-- Find symbol of current document
+keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
+-- Search workspace symbols
+keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
+-- Do default action for next item
+--keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
+-- Do default action for previous item
+--keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
+-- Resume latest coc list
+--keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
