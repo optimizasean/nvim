@@ -208,22 +208,13 @@ call plug#begin('~/.config/nvim/plugins')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-treesitter
-" nvim-treesitter.vim
-" https://github.com/nvim-treesitter/nvim-treesitter
-" https://vimawesome.com/plugin/nvim-treesitter
+" nvim-treesitter                                             "
+" nvim-treesitter.vim                                         "
+" https://github.com/nvim-treesitter/nvim-treesitter          "
+" https://vimawesome.com/plugin/nvim-treesitter               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Plugin
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-ts-rainbow
-" rainbow.vim
-" https://github.com/p00f/nvim-ts-rainbow
-" https://vimawesome.com/plugin/nvim-ts-rainbow
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-Plug 'p00f/nvim-ts-rainbow'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MRU                                                        "
@@ -431,6 +422,13 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'CocInstall coc-marketpla
 " set omnifunc=ale#completion#OmniFunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" rainbow-delimeters.nvim                                     "
+" https://gitlab.com/HiPhish/rainbow-delimiters.nvim          "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install Plugin
+Plug 'HiPhish/rainbow-delimiters.nvim', {'do': ':TSUpdate'}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Finish installing plugins with vim-plug                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
@@ -464,21 +462,6 @@ require'nvim-treesitter.configs'.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
-  }
-}
-EOF
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configure nvim-ts-rainbow                                   "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  rainbow = {
-    enable = true,
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
   }
 }
 EOF
@@ -914,6 +897,38 @@ keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
 --keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 -- Resume latest coc list
 --keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure rainbow-delimeters.nvim                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+-- This module contains a number of default definitions
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+require('rainbow-delimiters.setup').setup {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    priority = {
+        [''] = 110,
+        lua = 210,
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
+}
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
