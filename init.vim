@@ -42,8 +42,14 @@ set encoding=utf-8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interface Settings                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set background light/dark
+" set background=dark
+
+" Make background transparent
+highlight Normal ctermbg=NONE guibg=NONE
+
 " Enable vim color syntax highlighting
-syntax on
+syntax enable
 
 " Show when vim is waiting for a followup motion key (i.e. leader + ?, d + ?, so on)
 set showcmd
