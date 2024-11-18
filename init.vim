@@ -42,6 +42,9 @@ set encoding=utf-8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interface Settings                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set colorscheme
+colorscheme vim
+
 " Set background light/dark
 " set background=dark
 
