@@ -48,8 +48,9 @@ colorscheme vim
 " Set background light/dark
 " set background=dark
 
+" NOTE: I use transparent.nvim for this
 " Make background transparent
-highlight Normal ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
 
 " Enable vim color syntax highlighting
 syntax enable
@@ -217,6 +218,17 @@ call plug#begin('~/.config/nvim/plugins')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plenary                                                     "
+" plenary.nvim                                                "
+" https://github.com/nvim-lua/plenary.nvim                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin - this is here because it is dependent for many
+Plug 'nvim-lua/plenary.nvim'
+" Dependencies
+" diffview.nvim (not anymore?)
+" X
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-treesitter                                             "
 " nvim-treesitter.vim                                         "
 " https://github.com/nvim-treesitter/nvim-treesitter          "
@@ -376,50 +388,11 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Hologram                                                    "
-" hologram.nvim                                               "
-" https://github.com/nvim-telescope/telescope.nvim            "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-"Plug 'edluffy/hologram.nvim'
-" Has issues at the moment with graphics not being aligned, overwriting,
-" following cursor and more
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " diffview.nvim                                               "
 " https://github.com/sindrets/diffview.nvim                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Plugin
 Plug 'sindrets/diffview.nvim'
-Plug 'nvim-lua/plenary.nvim' " Required dependency
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ALE                                                         "
-" Asynchronus Lint Engine                                     "
-" https://github.com/w0rp/ale                                 "
-" https://github.com/dense-analysis/ale                       "
-" https://vimawesome.com/plugin/ale                           "
-" Note: user is w0rp, organization is dense-analysis          "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Install Plugin
-"Plug 'dense-analysis/ale'
-
-" Disabling highlighting
-"let g:ale_set_highlights = 0
-
-" Enable ALE code completion - do not turn on if using ALE as completion source for other plugins
-"let g:ale_completion_enabled = 0
-
-" Only run linting when saving the file
-"let g:ale_lint_on_text_changed = 'never'
-"let g:ale_lint_on_enter = 0
-
-" Set linters and fixers for ALE
-"let g:ale_linters = {}
-"let g:ale_fixers = {}
-
-" Make omnifunc use ALE
-" set omnifunc=ale#completion#OmniFunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " rainbow-delimeters.nvim                                     "
@@ -427,6 +400,104 @@ Plug 'nvim-lua/plenary.nvim' " Required dependency
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Plugin
 Plug 'HiPhish/rainbow-delimiters.nvim', {'do': ':TSUpdate'}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mason-lspconfig.nvim                                        "
+" https://github.com/williamboman/mason.nvim                  "
+" https://github.com/williamboman/mason-lspconfig.nvim        "
+" https://github.com/neovim/nvim-lspconfig                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugins
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" marks.nvim                                                  "
+" https://github.com/chentoast/marks.nvim                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+Plug 'chentoast/marks.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" crates.nvim                                                 "
+" https://github.com/saecki/crates.nvim                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+Plug 'saecki/crates.nvim', { 'tag': 'stable' }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" silicon.nvim                                                "
+" https://github.com/krivahtoo/silicon.nvim                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+" Plug 'krivahtoo/silicon.nvim', { 'do': './install.sh' }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" todo-comments.nvim                                          "
+" https://github.com/folke/todo-comments.nvim                 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+Plug 'folke/todo-comments.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Comment.nvim                                                "
+" https://github.com/numToStr/Comment.nvim                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+Plug 'numToStr/Comment.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" transparent.nvim                                            "
+" https://github.com/xiyaowong/transparent.nvim               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+Plug 'xiyaowong/transparent.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hypersonic.nvim                                             "
+" https://github.com/tomiis4/hypersonic.nvim                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+" Plug 'tomiis4/Hypersonic.nvim'
+" AFTER PLUGEND: require('hypersonic').setup()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-notify                                                 "
+" https://github.com/rcarriga/nvim-notify                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+" Plug 'rcarriga/nvim-notify'
+" look up config
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" instant.nvim                                                "
+" https://github.com/jbyuki/instant.nvim                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+" Plug 'jbyuki/instant.nvim'
+" let g:instant_username = "optimizasean"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" obsidian.nvim                                               "
+" https://github.com/epwalsh/obsidian.nvim                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+" Plug 'epwalsh/obsidian.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markview.nvim                                               "
+" https://github.com/OXY2DEV/markview.nvim                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugin
+" Plug 'OXY2DEV/markview.nvim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CodeCompanion                                               "
+" https://github.com/olimorris/codecompanion.nvim             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'olimorris/codecompanion.nvim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Finish installing plugins with vim-plug                     "
@@ -440,12 +511,12 @@ call plug#end()
 " Configure nvim-treesitter                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
+  ignore_install = { "phpdoc", "hoon" }, -- List of parsers to ignore installing
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   autopairs = {
-    enable = true,
+    enable = false,
   },
   highlight = {
     -- `false` will disable the whole extension
@@ -463,14 +534,14 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   }
-}
+})
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure Lualine                                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
-require'lualine'.setup {
+require('lualine').setup({
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -509,237 +580,162 @@ require'lualine'.setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {}
-}
+})
 EOF
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configure hologram                                          "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"lua <<EOF
-"require'hologram'.setup{
-"    auto_display = true -- WIP automatic markdown image display, may be prone to breaking
-"}
-"EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure nvim-tree                                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
---on_attach used function
---
--- This function has been generated from your
---   view.mappings.list
---   view.mappings.custom_only
---   remove_keymaps
---
--- You should add this function to your configuration and set on_attach = on_attach in the nvim-tree setup call.
---
--- Although care was taken to ensure correctness and completeness, your review is required.
---
--- Please check for the following issues in auto generated content:
---   "Mappings removed" is as you expect
---   "Mappings migrated" are correct
---
--- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
---
-
-local function nvim_tree_on_attach(bufnr)
-  local api = require('nvim-tree.api')
-
-  local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
-
-
-  -- Default mappings. Feel free to modify or remove as you wish.
-  --
-  -- BEGIN_DEFAULT_ON_ATTACH
-  vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node,          opts('CD'))
-  vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer,     opts('Open: In Place'))
-  vim.keymap.set('n', '<C-k>', api.node.show_info_popup,              opts('Info'))
-  vim.keymap.set('n', '<C-r>', api.fs.rename_sub,                     opts('Rename: Omit Filename'))
-  vim.keymap.set('n', '<C-t>', api.node.open.tab,                     opts('Open: New Tab'))
-  vim.keymap.set('n', '<C-v>', api.node.open.vertical,                opts('Open: Vertical Split'))
-  vim.keymap.set('n', '<C-x>', api.node.open.horizontal,              opts('Open: Horizontal Split'))
-  vim.keymap.set('n', '<BS>',  api.node.navigate.parent_close,        opts('Close Directory'))
-  vim.keymap.set('n', '<CR>',  api.node.open.edit,                    opts('Open'))
-  vim.keymap.set('n', '<Tab>', api.node.open.preview,                 opts('Open Preview'))
-  vim.keymap.set('n', '>',     api.node.navigate.sibling.next,        opts('Next Sibling'))
-  vim.keymap.set('n', '<',     api.node.navigate.sibling.prev,        opts('Previous Sibling'))
-  vim.keymap.set('n', '.',     api.node.run.cmd,                      opts('Run Command'))
-  vim.keymap.set('n', '-',     api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set('n', 'a',     api.fs.create,                         opts('Create'))
-  vim.keymap.set('n', 'bmv',   api.marks.bulk.move,                   opts('Move Bookmarked'))
-  vim.keymap.set('n', 'B',     api.tree.toggle_no_buffer_filter,      opts('Toggle No Buffer'))
-  vim.keymap.set('n', 'c',     api.fs.copy.node,                      opts('Copy'))
-  vim.keymap.set('n', 'C',     api.tree.toggle_git_clean_filter,      opts('Toggle Git Clean'))
-  vim.keymap.set('n', '[c',    api.node.navigate.git.prev,            opts('Prev Git'))
-  vim.keymap.set('n', ']c',    api.node.navigate.git.next,            opts('Next Git'))
-  vim.keymap.set('n', 'd',     api.fs.remove,                         opts('Delete'))
-  vim.keymap.set('n', 'D',     api.fs.trash,                          opts('Trash'))
-  vim.keymap.set('n', 'E',     api.tree.expand_all,                   opts('Expand All'))
-  vim.keymap.set('n', 'e',     api.fs.rename_basename,                opts('Rename: Basename'))
-  vim.keymap.set('n', ']e',    api.node.navigate.diagnostics.next,    opts('Next Diagnostic'))
-  vim.keymap.set('n', '[e',    api.node.navigate.diagnostics.prev,    opts('Prev Diagnostic'))
-  vim.keymap.set('n', 'F',     api.live_filter.clear,                 opts('Clean Filter'))
-  vim.keymap.set('n', 'f',     api.live_filter.start,                 opts('Filter'))
-  vim.keymap.set('n', 'g?',    api.tree.toggle_help,                  opts('Help'))
-  vim.keymap.set('n', 'gy',    api.fs.copy.absolute_path,             opts('Copy Absolute Path'))
-  vim.keymap.set('n', 'H',     api.tree.toggle_hidden_filter,         opts('Toggle Dotfiles'))
-  vim.keymap.set('n', 'I',     api.tree.toggle_gitignore_filter,      opts('Toggle Git Ignore'))
-  vim.keymap.set('n', 'J',     api.node.navigate.sibling.last,        opts('Last Sibling'))
-  vim.keymap.set('n', 'K',     api.node.navigate.sibling.first,       opts('First Sibling'))
-  vim.keymap.set('n', 'm',     api.marks.toggle,                      opts('Toggle Bookmark'))
-  vim.keymap.set('n', 'o',     api.node.open.edit,                    opts('Open'))
-  vim.keymap.set('n', 'O',     api.node.open.no_window_picker,        opts('Open: No Window Picker'))
-  vim.keymap.set('n', 'p',     api.fs.paste,                          opts('Paste'))
-  vim.keymap.set('n', 'P',     api.node.navigate.parent,              opts('Parent Directory'))
-  vim.keymap.set('n', 'q',     api.tree.close,                        opts('Close'))
-  vim.keymap.set('n', 'r',     api.fs.rename,                         opts('Rename'))
-  vim.keymap.set('n', 'R',     api.tree.reload,                       opts('Refresh'))
-  vim.keymap.set('n', 's',     api.node.run.system,                   opts('Run System'))
-  vim.keymap.set('n', 'S',     api.tree.search_node,                  opts('Search'))
-  vim.keymap.set('n', 'U',     api.tree.toggle_custom_filter,         opts('Toggle Hidden'))
-  vim.keymap.set('n', 'W',     api.tree.collapse_all,                 opts('Collapse'))
-  vim.keymap.set('n', 'x',     api.fs.cut,                            opts('Cut'))
-  vim.keymap.set('n', 'y',     api.fs.copy.filename,                  opts('Copy Name'))
-  vim.keymap.set('n', 'Y',     api.fs.copy.relative_path,             opts('Copy Relative Path'))
-  vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
-  vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
-  -- END_DEFAULT_ON_ATTACH
-
-
-  -- Mappings removed via:
-  --   remove_keymaps
-  --   OR
-  --   view.mappings.list..action = ""
-  --
-  -- The dummy set before del is done for safety, in case a default mapping does not exist.
-  --
-  -- You might tidy things by removing these along with their default mapping.
-  vim.keymap.set('n', 'O', '', { buffer = bufnr })
-  vim.keymap.del('n', 'O', { buffer = bufnr })
-  vim.keymap.set('n', '<2-RightMouse>', '', { buffer = bufnr })
-  vim.keymap.del('n', '<2-RightMouse>', { buffer = bufnr })
-  vim.keymap.set('n', 'D', '', { buffer = bufnr })
-  vim.keymap.del('n', 'D', { buffer = bufnr })
-  vim.keymap.set('n', 'E', '', { buffer = bufnr })
-  vim.keymap.del('n', 'E', { buffer = bufnr })
-
-
-  -- Mappings migrated from view.mappings.list
-  --
-  -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set('n', 'A', api.tree.expand_all, opts('Expand All'))
-  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-  vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
-  vim.keymap.set('n', 'P', function()
-    local node = api.tree.get_node_under_cursor()
-    print(node.absolute_path)
-  end, opts('Print Node Path'))
-
-  vim.keymap.set('n', 'Z', api.node.run.system, opts('Run System'))
-
-end
-
--- empty setup using defaults
---require("nvim-tree").setup()
-
--- OR setup with some options
-require("nvim-tree").setup({
-  on_attach = nvim_tree_on_attach,
-  sort_by = "case_sensitive",
-  view = {
-    adaptive_size = true,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
+require('nvim-tree').setup()
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure Telescope                                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
-require('telescope').setup{
-  defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
-    mappings = {
-      i = {
-        -- map actions.which_key to <C-h> (default: <C-/>)
-        -- actions.which_key shows the mappings for your picker,
-        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-        ["<C-h>"] = "which_key"
-      }
-    }
-  },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-  },
-  extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
-  }
-}
-EOF
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configure Telescope                                         "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua <<EOF
+require('telescope').setup()
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure rainbow-delimeters.nvim                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
--- This module contains a number of default definitions
-local rainbow_delimiters = require 'rainbow-delimiters'
+require('rainbow-delimiters.setup').setup()
+EOF
 
-require('rainbow-delimiters.setup').setup {
-    strategy = {
-        [''] = rainbow_delimiters.strategy['global'],
-        vim = rainbow_delimiters.strategy['local'],
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure mason-lspconfig.nvim                              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require('mason').setup()
+require('mason-lspconfig').setup()
+
+--require('lspconfig').lua_ls.setup {}
+--require('lspconfig').rust_analyzer.setup {}
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure marks.nvim                                        "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require('marks').setup()
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure crates.nvim                                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require('crates').setup({
+    completion = {
+        cmp = {
+            enabled = true
+        },
     },
-    query = {
-        [''] = 'rainbow-delimiters',
-        lua = 'rainbow-blocks',
+})
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure silicon.nvim                                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" lua << EOF
+" require('silicon').setup({
+"   font = 'FiraCode Nerd Font=16',
+"   theme = 'Monokai Extended',
+" })
+" EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure todo-comments.nvim                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require('todo-comments').setup({
+  signs = true, -- show icons in the signs column
+  sign_priority = 8, -- sign priority
+  -- keywords recognized as todo comments
+  keywords = {
+    FIX = {
+      icon = " ", -- icon used for the sign, and in search results
+      color = "error", -- can be a hex color, or a named color (see below)
+      alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "BROKE", "BROKEN", "BUG" }, -- a set of other keywords that all map to this FIX keywords
+      -- signs = false, -- configure signs for some keywords individually
     },
-    priority = {
-        [''] = 110,
-        lua = 210,
+    TODO = { icon = " ", color = "info" },
+    HACK = { icon = " ", color = "warning" },
+    WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    NOTE = { icon = " ", color = "hint", alt = { "INFO", "HINT" } },
+    TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+  },
+  gui_style = {
+    fg = "NONE", -- The gui style to use for the fg highlight group.
+    bg = "BOLD", -- The gui style to use for the bg highlight group.
+  },
+  merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+  -- highlighting of the line containing the todo comment
+  -- * before: highlights before the keyword (typically comment characters)
+  -- * keyword: highlights of the keyword
+  -- * after: highlights after the keyword (todo text)
+  highlight = {
+    multiline = true, -- enable multine todo comments
+    multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
+    multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
+    before = "", -- "fg" or "bg" or empty
+    keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
+    after = "fg", -- "fg" or "bg" or empty
+    pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
+    comments_only = true, -- uses treesitter to match keywords in comments only
+    max_line_len = 400, -- ignore lines longer than this
+    exclude = {}, -- list of file types to exclude highlighting
+  },
+  -- list of named colors where we try to extract the guifg from the
+  -- list of highlight groups or use the hex color if hl not found as a fallback
+  colors = {
+    error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+    warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+    info = { "DiagnosticInfo", "#2563EB" },
+    hint = { "DiagnosticHint", "#10B981" },
+    default = { "Identifier", "#7C3AED" },
+    test = { "Identifier", "#FF00FF" }
+  },
+  search = {
+    command = "rg",
+    args = {
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
     },
-    highlight = {
-        'RainbowDelimiterRed',
-        'RainbowDelimiterYellow',
-        'RainbowDelimiterBlue',
-        'RainbowDelimiterOrange',
-        'RainbowDelimiterGreen',
-        'RainbowDelimiterViolet',
-        'RainbowDelimiterCyan',
+    -- regex that will be used to match keywords.
+    -- don't replace the (KEYWORDS) placeholder
+    pattern = [[\b(KEYWORDS):]], -- ripgrep regex
+    -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+  },
+})
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Comment.nvim                                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require('Comment').setup()
+EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure CodeCompanion                                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require('codecompanion').setup({
+    strategies = {
+        chat = {
+          adapter = "ollama",
+        },
+        inline = {
+          adapter = "ollama",
+        },
     },
-}
+})
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
