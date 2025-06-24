@@ -513,7 +513,7 @@ call plug#end()
 lua <<EOF
 require('nvim-treesitter.configs').setup({
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "phpdoc", "hoon" }, -- List of parsers to ignore installing
+  ignore_install = { "phpdoc", "hoon", "ipkg", "norg" }, -- List of parsers to ignore installing
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   autopairs = {
     enable = false,
