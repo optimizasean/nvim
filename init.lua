@@ -20,10 +20,23 @@ vim.opt.rtp:prepend(lazypath)
 require('core.options')
 require('core.keymaps')
 
--- Configure lazy.nvim and load plugins
+-- 'plugins' is the directory name under lua/
+-- lazy.nvim will automatically load all *.lua files from lua/plugins/
 require('lazy').setup('plugins', {
-  -- You can add lazy.nvim options here, e.g.,
-  -- ui = {
-  --   border = 'rounded',
-  -- },
+  -- You can add any lazy.nvim options here
+  checker = {
+    enabled = true,
+    notify = true,
+  },
+  performance = {
+    rtp = {
+      -- These are often recommended to disable for startup speed
+      disabled_plugins = {
+        'gzip',
+        'tarPlugin',
+        'zipPlugin',
+      },
+    },
+  },
 })
+
