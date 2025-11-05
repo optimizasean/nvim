@@ -22,4 +22,3 @@ return {
     -- and will be merged with this one.
   end
 }
-
