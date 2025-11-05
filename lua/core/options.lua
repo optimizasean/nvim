@@ -26,14 +26,6 @@ opt.textwidth = 0 -- Don't break lines
 opt.foldenable = true -- Enable folding
 opt.foldmethod = 'manual' -- Set fold method
 
--- Text, tab and indent related
-opt.expandtab = true -- Convert tabs to spaces
-opt.tabstop = 4 -- 1 tab == 4 spaces
-opt.softtabstop = 4 -- Treat 4 spaces as single backspace
-opt.shiftwidth = 4 -- Shift lines by 4 spaces
-opt.autoindent = true -- Auto indent based on previous line
-vim.cmd('filetype plugin indent on')
-
 -- Regular Expressions and Searching
 opt.magic = true -- Turn magic on for regex
 opt.ignorecase = true -- Ignore case when searching

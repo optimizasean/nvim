@@ -2,6 +2,9 @@
 vim.g.mapleader = '\\'
 vim.g.maplocalleader = '\\'
 
+-- Enable FileType system (must do before autocmds run)
+vim.cmd('filetype plugin indent on')
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -18,6 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load core settings
 require('core.options')
+require('core.indents')
 require('core.keymaps')
 
 -- 'plugins' is the directory name under lua/
@@ -39,4 +43,3 @@ require('lazy').setup('plugins', {
     }
   }
 })
-
