@@ -22,6 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Load core settings
 require('core.options')
 require('core.keymaps')
+require('core.colorscheme')
 
 -- 'plugins' is the directory name under lua/
 -- lazy.nvim will automatically load all *.lua files from lua/plugins/
