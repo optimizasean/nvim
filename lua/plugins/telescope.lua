@@ -13,8 +13,15 @@ return {
     { '<leader>tf', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
     { '<leader>tg', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep' },
     { '<leader>tb', '<cmd>Telescope buffers<cr>', desc = 'Find Buffers' },
-    { '<leader>th', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags' },
-    { '<leader>tc', '<cmd>Telescope colorscheme<cr>', desc = 'Find Help Tags' }
+    { '<leader>tt', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags' },
+    -- { '<leader>tc', '<cmd>Telescope colorscheme<cr>', desc = 'Find Help Tags' }
+    {
+      '<leader>tc',
+      function()
+        require('colorscheme-persist').picker()
+      end,
+      desc = '[T]heme: (Persistent) Colorschemes'
+    },
   },
   config = function()
     require('telescope').setup()
