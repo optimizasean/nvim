@@ -11,5 +11,5 @@ return {
     -- require('obsidian').setup({
     --  dir = '~/path/to/your/obsidian/vault',
     -- })
-  end,
+  end
 }

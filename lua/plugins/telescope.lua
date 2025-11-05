@@ -10,12 +10,12 @@ return {
     -- Replaces mru.vim
     { '<leader>f', '<cmd>Telescope oldfiles<cr>', desc = 'Find Recent Files' },
     -- Your existing maps
-    { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files' }, --
-    { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep' }, --
-    { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find Buffers' }, -- FIX: Was TDelescope
-    { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags' }, --
+    { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
+    { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep' },
+    { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find Buffers' },
+    { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags' },
   },
   config = function()
     require('telescope').setup()
-  end,
+  end
 }

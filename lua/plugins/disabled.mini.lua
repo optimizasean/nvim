@@ -20,6 +20,6 @@ return {
     --
     -- The config for 'mini.map' is in 'disabled-minimap.lua'
     -- and will be merged with this one.
-  end,
+  end
 }
 

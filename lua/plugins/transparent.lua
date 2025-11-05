@@ -4,8 +4,10 @@
 -- ================================================
 return {
   'xiyaowong/transparent.nvim',
-  event = 'VeryLazy',
+  event = 'VimEnter', -- Load last or this will not set transparent until triggered
   config = function()
-    require('transparent').setup()
-  end,
+    require('transparent').setup({
+      -- ... any options you want ...
+    })
+  end
 }

@@ -12,5 +12,5 @@ return {
     --  font = 'FiraCode Nerd Font=16',
     --  theme = 'Monokai Extended',
     -- })
-  end,
+  end
 }

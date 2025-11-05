@@ -26,7 +26,7 @@ require('lazy').setup('plugins', {
   -- You can add any lazy.nvim options here
   checker = {
     enabled = true,
-    notify = true,
+    notify = true
   },
   performance = {
     rtp = {
@@ -34,9 +34,9 @@ require('lazy').setup('plugins', {
       disabled_plugins = {
         'gzip',
         'tarPlugin',
-        'zipPlugin',
-      },
-    },
-  },
+        'zipPlugin'
+      }
+    }
+  }
 })
 

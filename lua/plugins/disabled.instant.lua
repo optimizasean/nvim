@@ -7,5 +7,5 @@ return {
   enabled = false,
   config = function()
     -- vim.g.instant_username = "optimizasean"
-  end,
+  end
 }

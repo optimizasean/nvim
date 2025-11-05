@@ -16,6 +16,6 @@ return {
     { '<leader>nr', '<cmd>NvimTreeRefresh<cr>', desc = 'Refresh NvimTree' },
   },
   config = function()
-    require('nvim-tree').setup() --
-  end,
+    require('nvim-tree').setup()
+  end
 }

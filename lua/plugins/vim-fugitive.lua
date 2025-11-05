@@ -9,5 +9,5 @@ return {
   config = function()
     -- :set tags^=./.git/tags;
     vim.opt.tags:prepend('./.git/tags;')
-  end,
+  end
 }

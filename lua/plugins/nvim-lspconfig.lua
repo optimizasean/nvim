@@ -39,5 +39,5 @@ return {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP Go to Definition' })
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'LSP Go to References' })
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
-  end,
+  end
 }

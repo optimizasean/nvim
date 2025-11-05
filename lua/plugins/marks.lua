@@ -7,5 +7,5 @@ return {
   event = 'VeryLazy',
   config = function()
     require('marks').setup()
-  end,
+  end
 }

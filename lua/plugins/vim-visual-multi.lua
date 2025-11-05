@@ -12,12 +12,12 @@ return {
     vim.g.VM_maps = {
       ['Find Under'] = '<C-n>',
       ['Find Subword Under'] = '<C-n>',
-      ['Select All'] = '\\A', --
+      ['Select All'] = '\\A',
       ['Start Regex Search'] = '\\/',
       ['Add Cursor Down'] = '<C-Down>',
       ['Add Cursor Up'] = '<C-Up>',
       ['Add Cursor At Pos'] = '\\\'',
-      ['Visual Regex'] = '\\/', --
+      ['Visual Regex'] = '\\/',
       ['Visual All'] = '\\A',
       ['Visual Add'] = '\\a',
       ['Visual Find'] = '\\f',
@@ -26,7 +26,7 @@ return {
       ['Find Next'] = ']',
       ['Find Prev'] = '[',
       ['Goto Next'] = '}',
-      ['Goto Prev'] = '{', --
+      ['Goto Prev'] = '{',
       ['Seek Next'] = '<C-f>',
       ['Seek Prev'] = '<C-b>',
       ['Skip Region'] = 'q',
@@ -36,7 +36,7 @@ return {
       ['Surround'] = 'S',
       ['Replace Pattern'] = 'R',
       ['Tools Menu'] = '\\`',
-      ['Show Registers'] = '\\"', --
+      ['Show Registers'] = '\\"',
       ['Case Setting'] = '\\c',
       ['Toggle Whole Word'] = '\\w',
       ['Transpose'] = '\\t',
@@ -48,25 +48,25 @@ return {
       ['Remove Last Region'] = '\\q',
       ['Visual Subtract'] = '\\s',
       ['Case Conversion Menu'] = '\\C',
-      ['Search Menu'] = '\\S', --
+      ['Search Menu'] = '\\S',
       ['Run Normal'] = '\\z',
       ['Run Last Normal'] = '\\Z',
       ['Run Visual'] = '\\v',
       ['Run Last Visual'] = '\\V',
-      ['Run Ex'] = '\\x', --
+      ['Run Ex'] = '\\x',
       ['Run Last Ex'] = '\\X',
       ['Run Macro'] = '\\@',
       ['Align Char'] = '\\<',
-      ['Align Regex'] = '\\>', --
+      ['Align Regex'] = '\\>',
       ['Numbers'] = '\\n',
       ['Numbers Append'] = '\\N',
       ['Zero Numbers'] = '\\0n',
       ['Zero Numbers Append'] = '\\0N',
       ['Shrink'] = '\\-',
-      ['Enlarge'] = '\\+', --
+      ['Enlarge'] = '\\+',
       ['Toggle Block'] = '\\<BS>',
       ['Toggle Single Region'] = '\\<CR>',
-      ['Toggle Multiline'] = '\\M',
+      ['Toggle Multiline'] = '\\M'
     }
-  end,
+  end
 }

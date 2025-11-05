@@ -4,7 +4,7 @@
 -- ================================================
 return {
   'saecki/crates.nvim',
-  tag = 'stable', --
+  tag = 'stable',
   ft = { 'rust', 'toml' },
   config = function()
     require('crates').setup({
@@ -14,5 +14,5 @@ return {
         },
       },
     })
-  end,
+  end
 }

@@ -7,5 +7,5 @@ return {
   event = 'VeryLazy',
   config = function()
     require('hypersonic').setup()
-  end,
+  end
 }
