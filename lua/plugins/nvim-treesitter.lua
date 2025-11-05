@@ -9,24 +9,22 @@ return {
   dependencies = { 'HiPhish/rainbow-delimiters.nvim' },
   config = function()
     require('nvim-treesitter.configs').setup({
-      -- NOTE: We are using the HiPhish/rainbow-delimiters.nvim plugin
-      -- instead of the built-in module, as requested.
-      -- rainbow = {
-      --  enable = true,
-      -- },
-      ensure_installed = 'all', --
-      ignore_install = { 'phpdoc', 'hoon', 'ipkg', 'norg' }, --
-      sync_install = false, --
+      ensure_installed = 'all',
+      ignore_install = { 'phpdoc', 'hoon', 'ipkg', 'norg' },
+      sync_install = false,
       autopairs = {
         enable = false,
       },
       highlight = {
-        enable = true, --
-        additional_vim_regex_highlighting = false, --
+        enable = true,
+        additional_vim_regex_highlighting = false,
       },
+      indent = {
+        enable = true
+      }
     })
 
     -- Call rainbow-delimiters.setup() here, after treesitter is set up
     require('rainbow-delimiters.setup').setup()
-  end,
+  end
 }

@@ -7,5 +7,5 @@ return {
   cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
   config = function()
     require('mason').setup()
-  end,
+  end
 }

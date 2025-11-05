@@ -13,5 +13,5 @@ return {
       -- For example, to change the window width:
       -- window = { width = 20 },
     })
-  end,
+  end
 }

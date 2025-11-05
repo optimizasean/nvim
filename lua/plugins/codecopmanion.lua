@@ -18,7 +18,7 @@ return {
         inline = {
           adapter = 'ollama',
         },
-      }, --
+      }, 
     })
-  end,
+  end
 }

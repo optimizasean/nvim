@@ -7,5 +7,5 @@ return {
   event = 'VeryLazy',
   config = function()
     require('Comment').setup()
-  end,
+  end
 }
