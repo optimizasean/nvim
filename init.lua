@@ -21,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load core settings
 require('core.options')
-require('core.indents')
 require('core.keymaps')
 
 -- 'plugins' is the directory name under lua/
