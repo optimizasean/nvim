@@ -20,11 +20,12 @@ vim.cmd.syntax('enable') -- Enable syntax highlighting
 opt.termguicolors = true -- Neovim will try 24-bit RGB colors if true (required for colorschemes)
 -- opt.showcmd = true -- Show pending commands
 -- opt.showmode = true -- Show current mode
+-- opt.laststatus = 2 -- Show the statusline
 opt.ruler = true -- Show row/column %
 -- opt.number = true -- Show absolute line numbers
 opt.relativenumber = true -- Show relative line numbers (hybrid mode when 'number' is also true)
--- opt.laststatus = 2 -- Show the statusline
-opt.showmatch = true -- Show matching brackets
+opt.scrolloff = 8
+--opt.showmatch = true -- Show matching brackets
 opt.textwidth = 0 -- Don't break lines
 opt.wrap = false -- (wrap) Disable line wrapping; long lines will not break
 
