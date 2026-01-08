@@ -5,6 +5,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  branch = 'master',
   -- Add rainbow-delimiters as a dependency
   dependencies = { 'HiPhish/rainbow-delimiters.nvim' },
   config = function()
