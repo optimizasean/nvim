@@ -30,9 +30,9 @@ opt.textwidth = 0 -- Don't break lines
 opt.wrap = false -- (wrap) Disable line wrapping; long lines will not break
 
 -- Tabs and Spacing
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
 opt.expandtab = true
 -- opt.autoindent = true -- Copy indent from current line when starting a new line
 -- opt.smartindent = true -- Be smart about indentation
