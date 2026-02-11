@@ -65,11 +65,11 @@ These icons indicate the source of each hotkey mapping:
 
 | Icon | Type | Description |
 | --- | --- | --- |
+| ✅ | **Enabled** | Marking plugins that are enabled. |
+| ❌ | **Disabled** | Marking plugins that are disabled. |
 | 📦 | **Default** | Hardcoded by the plugin itself. |
 | 💡 | **Suggested** | Recommended by the plugin and implemented in my config. |
 | 🛠️ | **Custom** | My own unique mapping or a modification of a default. |
-
----
 
 ## Structure
 
