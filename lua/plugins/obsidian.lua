@@ -1,6 +1,8 @@
 -- ================================================
 -- obsidian.nvim
 -- https://github.com/epwalsh/obsidian.nvim
+--
+-- Obsidian 🤝 Neovim
 -- ================================================
 return {
   'epwalsh/obsidian.nvim',

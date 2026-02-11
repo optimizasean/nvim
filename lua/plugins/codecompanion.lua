@@ -1,6 +1,8 @@
 -- ================================================
 -- CodeCompanion
 -- https://github.com/olimorris/codecompanion.nvim
+--
+-- ✨ AI Coding, Vim Style
 -- ================================================
 return {
   'olimorris/codecompanion.nvim',

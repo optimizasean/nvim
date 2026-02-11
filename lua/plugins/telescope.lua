@@ -1,6 +1,8 @@
 -- ================================================
 -- telescope.nvim
 -- https://github.com/nvim-telescope/telescope.nvim
+--
+-- Find, Filter, Preview, Pick. All lua, all the time.
 -- ================================================
 return {
   'nvim-telescope/telescope.nvim',

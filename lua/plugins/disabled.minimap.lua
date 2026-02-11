@@ -1,6 +1,9 @@
 -- ================================================
 -- mini.map (Disabled)
 -- https://github.com/nvim-mini/mini.nvim/
+--
+-- Library of 40+ independent Lua modules improving
+-- Neovim experience with minimal effort.
 -- ================================================
 return {
   'nvim-mini/mini.nvim',

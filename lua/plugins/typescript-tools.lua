@@ -1,6 +1,8 @@
 -- ================================================
 -- typescript-tools.nvim
 -- https://github.com/pmizio/typescript-tools.nvim
+--
+-- ⚡ TypeScript integration NeoVim deserves ⚡
 -- ================================================
 return {
   'pmizio/typescript-tools.nvim',

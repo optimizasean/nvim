@@ -1,6 +1,8 @@
 -- ================================================
 -- colorscheme-persist.nvim
 -- https://github.com/propet/colorscheme-persist.nvim
+--
+-- Persist your colorscheme selection
 -- ================================================
 return {
   'propet/colorscheme-persist.nvim',

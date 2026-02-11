@@ -1,6 +1,9 @@
 -- ================================================
 -- transparent.nvim
 -- https://github.com/xiyaowong/transparent.nvim
+--
+-- Remove all background colors to make nvim
+-- transparent
 -- ================================================
 return {
   'xiyaowong/transparent.nvim',
