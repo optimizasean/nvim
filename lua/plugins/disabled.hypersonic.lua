@@ -1,5 +1,5 @@
 -- ================================================
--- Hypersonic.nvim
+-- Hypersonic.nvim (Disabled)
 -- https://github.com/tomiis4/hypersonic.nvim
 --
 -- A powerful NeoVim plugin created to increase your
