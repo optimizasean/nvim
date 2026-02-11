@@ -1,6 +1,9 @@
 -- ================================================
 -- crates.nvim
 -- https://github.com/saecki/crates.nvim
+--
+-- A neovim plugin that helps managing crates.io
+-- dependencies.
 -- ================================================
 return {
   'saecki/crates.nvim',

@@ -1,6 +1,8 @@
 -- ================================================
 -- silicon.nvim
 -- https://github.com/krivahtoo/silicon.nvim
+--
+-- Neovim plugin for silicon in Rust
 -- ================================================
 return {
   'krivahtoo/silicon.nvim',

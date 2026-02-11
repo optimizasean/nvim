@@ -1,6 +1,8 @@
 -- ================================================
 -- Vim visual multi
 -- https://github.com/mg979/vim-visual-multi
+--
+-- Multiple cursors plugin for vim/neovim
 -- ================================================
 return {
   'mg979/vim-visual-multi',
