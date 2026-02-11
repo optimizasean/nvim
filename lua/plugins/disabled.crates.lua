@@ -1,5 +1,5 @@
 -- ================================================
--- crates.nvim
+-- crates.nvim (Disabled)
 -- https://github.com/saecki/crates.nvim
 --
 -- A neovim plugin that helps managing crates.io

@@ -1,5 +1,5 @@
 -- ================================================
--- nvim-autopairs
+-- nvim-autopairs (Disabled)
 -- https://github.com/windwp/nvim-autopairs
 --
 -- autopairs for neovim written in lua.

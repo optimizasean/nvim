@@ -1,5 +1,5 @@
 -- ================================================
--- mini.nvim (Suite)
+-- mini.nvim (Suite) (Disabled)
 -- https://github.com/nvim-mini/mini.nvim
 --
 -- Library of 40+ independent Lua modules improving
