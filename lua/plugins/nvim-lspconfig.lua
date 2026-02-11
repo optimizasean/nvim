@@ -38,8 +38,9 @@ return {
     -- Example keymaps for LSP functionality
     -- You can place these in a more central keymap file if you have one
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP Go to Definition' })
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'LSP Go to References' })
+    -- Handled by Telescope (see telescope.lua)
+    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP Go to Definition' })
+    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'LSP Go to References' })
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
   end
 }
