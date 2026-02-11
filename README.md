@@ -14,8 +14,36 @@ You may also like to look at my [tmux configuration](https://github.com/optimiza
 - [Structure](#structure)
 - [Installation](#installation)
 - [Plugins](#plugins)
+  - [Core & Library](#core--library)
+  - [UI](#ui)
+  - [File Navigation](#file-navigation)
+  - [Git](#git)
+  - [LSP (Language Server Protocol)](#lsp-language-server-protocol)
+  - [Editing](#editing)
+  - [Language Specific](#language-specific)
+  - [AI](#ai)
+  - [Note Taking](#note-taking)
 - [Available Commands](#available-commands)
 - [Hotkey Mappings](#hotkey-mappings)
+  - [Default Mappings](#default-mappings)
+  - [Plugin Mappings](#plugin-mappings)
+    - [nvim-tree.lua](#nvim-treelua)
+    - [telescope.nvim](#telescopenvim)
+    - [nvim-lspconfig](#nvim-lspconfig)
+    - [typescript-tools.nvim](#typescript-toolsnvim)
+    - [vim-visual-multi](#vim-visual-multi)
+    - [Comment.nvim](#commentnvim)
+    - [marks.nvim](#marksnvim)
+    - [todo-comments.nvim](#todo-commentsnvim)
+    - [obsidian.nvim](#obsidiannvim)
+    - [vim-fugitive](#vim-fugitive)
+    - [diffview.nvim](#diffviewnvim)
+    - [mason.nvim](#masonnvim)
+    - [CodeCompanion](#codecompanion)
+    - [nvim-autopairs](#nvim-autopairs)
+    - [Hypersonic.nvim](#hypersonicnvim)
+    - [rustaceanvim](#rustaceanvim)
+    - [crates.nvim](#cratesnvim)
 
 ## Legend
 
@@ -234,8 +262,8 @@ The leader key (`<Leader>`) is set to `\`.
 | Type | Key | Action |
 | --- | --- | --- |
 | 🛠️ | `<C-n>` | Find Under / Find Subword Under |
-| 🛠️ | `\A` | Select All (Default: `<C-n>A`) |
-| 🛠️ | `\/` | Start Regex Search (Default: `<C-n>/`) |
+| 🛠️ | `\A` | Select All |
+| 🛠️ | `\/` | Start Regex Search |
 | 🛠️ | `<C-Down>` | Add Cursor Down |
 | 🛠️ | `<C-Up>` | Add Cursor Up |
 | 🛠️ | `\'` | Add Cursor At Pos |
