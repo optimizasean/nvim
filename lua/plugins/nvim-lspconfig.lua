@@ -19,7 +19,7 @@ return {
     -- are automatically configured by lspconfig.
     require('mason-lspconfig').setup({
       -- You can list servers here to ensure they are installed
-      -- Example: ensure_installed = { "lua_ls", "tsserver" }
+      -- Example: ensure_installed = { 'lua_ls', 'tsserver' }
     })
 
     -- Basic lspconfig setup.
