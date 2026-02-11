@@ -4,9 +4,23 @@ This is my personal Neovim configuration, organized to be minimal, clean, and fa
 
 It uses `lazy.nvim` for plugin management and is structured entirely in Lua.
 
-Most of my bindings are sensible defaults or the recommended mappings from the plugins. I've changed some (like window navigation) to avoid conflicts with `tmux`, which I highly recommend.
+Most of my bindings are sensible defaults or the recommended mappings from the plugins.
+I've changed some (like window navigation) to avoid conflicts with `tmux`, which I highly recommend.
+I also use zellij and ghostty (similar bindings to kitty) so I made sure there should be no conflicts with any of the hotkeys.
 
 You may also like to look at my [tmux configuration](https://github.com/optimizasean/tmux).
+
+Recommended tools:
+- Ghostty: terminal
+- zellij: multiplexer (or tmux is nice too)
+- nvim: (of course neovim lol)
+- pnpm: manage node runtimes and global node tools
+- uv: manage python runtimes and global python tools
+- cargo: manage rust global tools (and recommended to install from rustup)
+- zvm: manage zig
+
+Also recommend Arch/yay with flatpak for other things (not required for this).
+Terminal tools you will probably need fzf, rg, rust-analyzer, ruff, ...maybe some other tools? I forget.
 
 ## Index
 
