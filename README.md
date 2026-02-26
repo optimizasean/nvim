@@ -39,7 +39,8 @@ Terminal tools you will probably need fzf, rg, rust-analyzer, ruff, ...maybe som
   - [Note Taking](#note-taking)
 - [Available Commands](#available-commands)
 - [Hotkey Mappings](#hotkey-mappings)
-  - [Default Mappings](#default-mappings)
+  - [Neovim Default Mappings](#neovim-default-mappings)
+  - [Custom Core Mappings](#custom-core-mappings)
   - [Plugin Mappings](#plugin-mappings)
     - [nvim-tree.lua](#nvim-treelua)
     - [telescope.nvim](#telescopenvim)
@@ -96,7 +97,9 @@ Follow these steps to set up the environment on a new machine:
 This setup is managed by `lazy.nvim` and organized into individual files within the `lua/plugins/` directory. Below is a catalog of all installed plugins, sorted by category.
 
 ### Core & Library
+
 These are foundational libraries and core editor enhancements.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `plenary.nvim` | [`nvim-lua/plenary.nvim`](https://github.com/nvim-lua/plenary.nvim) | A core Lua library providing common utilities (telescope, etc.) |
@@ -105,7 +108,9 @@ These are foundational libraries and core editor enhancements.
 | ❌ | `mini.nvim` | [`nvim-mini/mini.nvim`](https://github.com/nvim-mini/mini.nvim) | A library of minimal, fast, and feature-rich Lua plugins. |
 
 ### UI
+
 Plugins that modify the Neovim user interface, appearance, and status.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `nvim-tree.lua` | [`nvim-tree/nvim-tree.lua`](https://github.com/nvim-tree/nvim-tree.lua) | A file explorer sidebar. |
@@ -119,21 +124,27 @@ Plugins that modify the Neovim user interface, appearance, and status.
 | ❌ | `mini.map` | [`nvim-mini/mini.nvim`](https://github.com/nvim-mini/mini.nvim) | A minimal and fast minimap for Neovim. |
 
 ### File Navigation
+
 Plugins focused on finding and navigating files and buffers.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `telescope.nvim` | [`nvim-telescope/telescope.nvim`](https://github.com/nvim-telescope/telescope.nvim) | A highly extendable fuzzy finder for files, buffers, grep, etc. |
 | ✅ | `marks.nvim` | [`chentoast/marks.nvim`](https://github.com/chentoast/marks.nvim) | A plugin to better manage and visualize Neovim's marks. |
 
 ### Git
+
 Plugins for Git integration and version control.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `vim-fugitive` | [`tpope/vim-fugitive`](https://github.com/tpope/vim-fugitive) | The classic and powerful Git wrapper for Vim/Neovim. |
 | ✅ | `diffview.nvim` | [`sindrets/diffview.nvim`](https://github.com/sindrets/diffview.nvim) | A powerful diff viewer for Git revisions. |
 
 ### LSP (Language Server Protocol)
+
 Plugins related to the Language Server Protocol for code intelligence.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `mason.nvim` | [`williamboman/mason.nvim`](https://github.com/williamboman/mason.nvim) | Manages LSP servers, linters, and formatters automatically. |
@@ -144,7 +155,9 @@ Plugins related to the Language Server Protocol for code intelligence.
 | ❌ | `roslyn.nvim` | [`seblj/roslyn.nvim`](https://github.com/seblj/roslyn.nvim) | C# Roslyn experience in Neovim. |
 
 ### Editing
+
 Plugins that enhance the day-to-day text editing experience.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `vim-visual-multi` | [`mg979/vim-visual-multi`](https://github.com/mg979/vim-visual-multi) | Provides powerful multiple cursor support. |
@@ -154,7 +167,9 @@ Plugins that enhance the day-to-day text editing experience.
 | ❌ | `instant.nvim` | [`jbyuki/instant.nvim`](https://github.com/jbyuki/instant.nvim) | A plugin for collaborative editing. |
 
 ### Language Specific
+
 Plugins built for a specific programming language.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `rustaceanvim` | [`mrcjkb/rustaceanvim`](https://github.com/mrcjkb/rustaceanvim) | Supercharge your Rust experience in Neovim. |
@@ -162,13 +177,17 @@ Plugins built for a specific programming language.
 | ❌ | `crates.nvim` | [`saecki/crates.nvim`](https://github.com/saecki/crates.nvim) | Helps manage Rust dependencies in `Cargo.toml` files. |
 
 ### AI
+
 Plugins related to artificial intelligence and code companions.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `codecompanion.nvim` | [`olimorris/codecompanion.nvim`](https://github.com/olimorris/codecompanion.nvim) | AI code companion, configured to use Ollama. |
 
 ### Note Taking
+
 Plugins for note-taking and knowledge management.
+
 | | Plugin | Source | Description |
 | --- | --- | --- | --- |
 | ✅ | `obsidian.nvim` | [`epwalsh/obsidian.nvim`](https://github.com/epwalsh/obsidian.nvim) | Integrates Neovim with the Obsidian note-taking app. |
@@ -192,6 +211,7 @@ Managed by [uv](https://github.com/astral-sh/uv).
 uv tool install pyright
 uv tool install ruff
 ```
+
 - **Mason alternative:** `:MasonInstall pyright ruff`
 
 #### Rust (via `rustup` / `cargo`)
@@ -203,6 +223,7 @@ rustup component add rust-analyzer
 # OR
 cargo install rust-analyzer
 ```
+
 - **Mason alternative:** `:MasonInstall rust-analyzer`
 
 #### TypeScript / JavaScript (via `pnpm`)
@@ -212,11 +233,13 @@ Managed by [pnpm](https://pnpm.io/).
 ```bash
 pnpm add -g typescript typescript-language-server
 ```
+
 - **Mason alternative:** `:MasonInstall typescript-language-server`
 
 #### Others (via `mason.nvim`)
 
 The following are automatically managed and installed by Mason in this config:
+
 - **GraphQL:** `graphql`
 - **YAML / Kubernetes:** `yamlls`
 - **Markdown:** `marksman`
@@ -268,8 +291,106 @@ This section provides a quick reference for the most important `:Commands` for e
 
 The leader key (`<Leader>`) is set to `\`. This section lists the primary hotkeys used in this configuration, divided into core Neovim mappings and plugin-specific mappings.
 
-### Default Mappings
+### Neovim Default Mappings
+
+These are the standard, out-of-the-box Neovim keybindings (Normal Mode unless specified).
+
+#### Motion
+
+| Key | Action |
+| --- | --- |
+| `h` `j` `k` `l` | Move left, down, up, right |
+| `w` `b` | Move to start of next / previous word |
+| `e` `ge` | Move to end of next / previous word |
+| `W` `B` `E` `gE` | Same as above but using WORD (spaces only) |
+| `0` `$` | Move to beginning / end of line |
+| `^` `_` | Move to first non-blank character of line |
+| `gg` `G` | Move to first / last line of file |
+| `(` `)` | Move to start of previous / next sentence |
+| `{` `}` | Move to start of previous / next paragraph |
+| `H` `M` `L` | Move to Top, Middle, Bottom line of the window |
+| `%` | Jump to matching bracket |
+| `f{char}` `F{char}` | Find character forward / backward |
+| `t{char}` `T{char}` | Move "till" character forward / backward |
+| `;` `,` | Repeat last `f` / `t` (forward / backward) |
+
+#### Editing
+
+| Key | Action |
+| --- | --- |
+| `i` `I` | Insert at cursor / first non-blank of line |
+| `a` | Append after cursor |
+| `A` | Append at end of line |
+| `o` `O` | Open new line below / above |
+| `r` | Replace single character |
+| `R` | Enter Replace mode |
+| `x` `X` | Delete character under / before cursor |
+| `d{motion}` | Delete (cut) based on motion |
+| `dd` | Delete (cut) current line |
+| `D` | Delete (cut) to end of line |
+| `c{motion}` | Change (cut + insert) based on motion |
+| `cc` | Change (cut + insert) current line |
+| `C` | Change (cut + insert) to end of line |
+| `s` `S` | Substitute character / line |
+| `y{motion}` | Yank (copy) based on motion |
+| `yy` `Y` | Yank current line |
+| `p` `P` | Paste after / before cursor |
+| `u` `<C-r>` | Undo / Redo |
+| `.` | Repeat last change |
+| `J` | Join current line with next |
+| `~` | Toggle case of character |
+
+#### Visual Mode
+
+| Key | Action |
+| --- | --- |
+| `v` `V` | Start Visual / Visual Line mode |
+| `<C-v>` | Start Visual Block mode |
+| `o` | Move to other end of selection |
+| `u` `U` | Make selection lowercase / uppercase |
+| `>` `<` | Indent / Outdent selection |
+
+#### Search & Replace
+
+| Key | Action |
+| --- | --- |
+| `/` `?` | Search forward / backward |
+| `n` `N` | Repeat search forward / backward |
+| `*` `#` | Search for word under cursor (forward / backward) |
+| `:%s/old/new/g` | Substitute `old` with `new` globally |
+
+#### Windows & Tabs
+
+| Key | Action |
+| --- | --- |
+| `<C-w>s` `<C-w>v` | Split window horizontally / vertically |
+| `<C-w>w` | Cycle between windows |
+| `<C-w>h` `j` `k` `l` | Move to window in direction |
+| `<C-w>q` `<C-w>c` | Quit / Close current window |
+| `<C-w>o` | Close all other windows |
+| `<C-w>r` | Rotate windows |
+| `<C-w>=` | Make windows equal size |
+| `:tabnew` | Open new tab |
+| `gt` `gT` | Move to next / previous tab |
+
+#### LSP & Diagnostics (Neovim 0.10+ Defaults)
+
+| Key | Action |
+| --- | --- |
+| `K` | Hover information |
+| `gd` | Go to definition |
+| `gD` | Go to declaration |
+| `gi` | Go to implementation |
+| `grr` | List references |
+| `grn` | Rename symbol |
+| `gra` | Code actions |
+| `[d` `]d` | Previous / Next diagnostic |
+| `<C-w>d` | Open diagnostic float |
+
+### Custom Core Mappings
+
 Essential editor navigation and window management mappings defined in `lua/core/keymaps.lua`.
+
 | Type | Key | Mode | Action |
 | --- | --- | --- | --- |
 | 🛠️ | `<C-j>` | n, i, v | Move to the window below |
@@ -279,9 +400,11 @@ Essential editor navigation and window management mappings defined in `lua/core/
 | 🛠️ | `<Leader><CR>` | n | Clear search highlight (`:noh`) |
 
 ### Plugin Mappings
+
 Hotkey mappings provided or overridden by installed plugins. These enhance specific tool workflows.
 
 #### `nvim-tree.lua`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 🛠️ | `<leader>nn` | Toggle NvimTree |
@@ -310,6 +433,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 📦 | `q` | Close |
 
 #### `telescope.nvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 🛠️ | `<leader>f` | Find Recent Files (MRU) |
@@ -333,6 +457,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 📦 | `<M-q>` | Send selected to quickfix list |
 
 #### `nvim-lspconfig`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 🛠️ | `K` | LSP Hover information |
@@ -341,6 +466,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 🛠️ | `<leader>ca` | LSP Code Action |
 
 #### `typescript-tools.nvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 🛠️ | `gD` | Go to Source Definition (Default: LSP Declaration) |
@@ -348,17 +474,18 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 🛠️ | `<leader>rf` | Rename File |
 
 #### `vim-visual-multi`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 🛠️ | `<C-n>` | Find Under / Find Subword Under |
-| 🛠️ | `\A` | Select All (Default: `<C-n>A`) |
-| 🛠️ | `\/` | Start Regex Search (Default: `<C-n>/`) |
+| 🛠️ | `\A` | Select All / Visual All (Default: `<C-n>A`) |
+| 🛠️ | `\/` | Start Regex Search / Visual Regex (Default: `<C-n>/`) |
 | 🛠️ | `<C-Down>` | Add Cursor Down |
 | 🛠️ | `<C-Up>` | Add Cursor Up |
 | 🛠️ | `\'` | Add Cursor At Pos |
-| 🛠️ | `\a` | Visual Add |
+| 🛠️ | `\a` | Visual Add / Align |
 | 🛠️ | `\f` | Visual Find |
-| 🛠️ | `\c` | Visual Cursors |
+| 🛠️ | `\c` | Visual Cursors / Case Setting |
 | 🛠️ | `<Tab>` | Switch Mode |
 | 🛠️ | `]` | Find Next |
 | 🛠️ | `[` | Find Prev |
@@ -374,16 +501,13 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 🛠️ | `R` | Replace Pattern |
 | 🛠️ | `\`` | Tools Menu |
 | 🛠️ | `\"` | Show Registers |
-| 🛠️ | `\c` | Case Setting |
 | 🛠️ | `\w` | Toggle Whole Word |
 | 🛠️ | `\t` | Transpose |
-| 🛠️ | `\a` | Align |
 | 🛠️ | `\d` | Duplicate |
 | 🛠️ | `\r` | Rewrite Last Search |
 | 🛠️ | `\m` | Merge Regions |
-| 🛠️ | `\s` | Split Regions |
+| 🛠️ | `\s` | Split Regions / Visual Subtract |
 | 🛠️ | `\q` | Remove Last Region |
-| 🛠️ | `\s` | Visual Subtract |
 | 🛠️ | `\C` | Case Conversion Menu |
 | 🛠️ | `\S` | Search Menu |
 | 🛠️ | `\z` | Run Normal |
@@ -406,6 +530,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 🛠️ | `\M` | Toggle Multiline |
 
 #### `Comment.nvim`
+
 | Type | Key | Mode | Action |
 | --- | --- | --- | --- |
 | 📦 | `gcc` | n | Toggle line comment |
@@ -422,23 +547,30 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `mx` | Set mark `x` |
-| 📦 | `dmx` | Delete mark `x` |
 | 📦 | `m,` | Set next available mark |
+| 📦 | `m;` | Toggle next available mark at current line |
+| 📦 | `dmx` | Delete mark `x` |
+| 📦 | `dm-` | Delete all marks on line |
+| 📦 | `dm<space>` | Delete all marks in buffer |
 | 📦 | `m]` | Move to next mark |
 | 📦 | `m[` | Move to previous mark |
 | 📦 | `m:` | Preview mark |
-| 📦 | `dm-` | Delete all marks on line |
-| 📦 | `dm<space>` | Delete all marks in buffer |
 | 📦 | `m[0-9]` | Add bookmark group 0-9 |
 | 📦 | `dm[0-9]` | Delete bookmarks in group 0-9 |
+| 📦 | `m}` | Move to next bookmark of same type |
+| 📦 | `m{` | Move to previous bookmark of same type |
+| 📦 | `dm=` | Delete bookmark under cursor |
+
 
 #### `todo-comments.nvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `]t` | Next todo comment |
 | 📦 | `[t` | Previous todo comment |
 
-#### `obsidian.nvim`
+#### `obsidian.nvim` (❌ Disabled)
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `gf` | Follow link under cursor (Default: Native file `gf`) |
@@ -446,6 +578,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 🛠️ | `<cr>` | Smart action (link/checkbox) |
 
 #### `vim-fugitive` (Status Window)
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `g?` | Show help |
@@ -467,6 +600,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 📦 | `X` | Discard change |
 
 #### `diffview.nvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `<tab>` | Next file |
@@ -486,6 +620,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 📦 | `dx` | Delete conflict region |
 
 #### `mason.nvim` (UI)
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `g?` | Toggle help |
@@ -496,9 +631,11 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 📦 | `U` | Update all |
 | 📦 | `C` | Check all |
 | 📦 | `X` | Uninstall |
+| 📦 | `<C-f>` | Apply language filter |
 | 📦 | `<C-c>` | Cancel installation |
 
 #### `CodeCompanion` (Chat Buffer)
+
 | Type | Key | Mode | Action |
 | --- | --- | --- | --- |
 | 📦 | `<C-s>` | i | Send prompt |
@@ -510,19 +647,22 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 📦 | `s` | n | Save chat to file |
 | 📦 | `]` | n | Next Header |
 | 📦 | `[` | n | Previous Header |
-| 📦 | `f` | n | Fold |
+| 📦 | `gf` | n | Fold |
 
 #### `nvim-autopairs`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `<M-e>` | FastWrap |
 
 #### `Hypersonic.nvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 📦 | `/` or `?` | Preview regex explanations during search |
 
 #### `rustaceanvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 💡 | `K` | RustLsp hover actions |
@@ -532,6 +672,7 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 💡 | `<leader>d` | RustLsp debuggables |
 
 #### `crates.nvim`
+
 | Type | Key | Action |
 | --- | --- | --- |
 | 💡 | `<leader>cct` | Crates Toggle |
