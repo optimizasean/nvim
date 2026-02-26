@@ -9,8 +9,26 @@ return {
   'williamboman/mason-lspconfig.nvim',
   dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
   config = function()
-    require('mason-lspconfig').setup({
-      ensure_installed = { 'pyright', 'ruff' }
+    local mason_lspconfig = require('mason-lspconfig')
+    local servers = {
+      'graphql',
+      'yamlls',
+      'marksman',
+      'dockerls',
+      'docker_compose_language_service',
+      'taplo',
+      'jsonls',
+      'lua_ls',
+    }
+
+    mason_lspconfig.setup({
+      ensure_installed = servers
     })
+
+    -- Set up servers using Neovim 0.11+ native LSP config
+    for _, server in ipairs(servers) do
+      vim.lsp.config(server, {})
+      vim.lsp.enable(server)
+    end
   end
 }

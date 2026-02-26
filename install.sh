@@ -28,6 +28,32 @@ if ! command -v nvim &> /dev/null; then
     exit 1
 fi
 
+# --- External Tool Checks ---
+
+echo "Checking external dependencies..."
+
+# Check uv and its tools
+if ! command -v uv &> /dev/null; then
+    echo "Warning: 'uv' not found. Python LSP support (ruff/pyright) may be missing."
+else
+    if ! uv tool list | grep -q "pyright"; then
+        echo "Note: 'pyright' is not installed via uv. Run: uv tool install pyright"
+    fi
+    if ! uv tool list | grep -q "ruff"; then
+        echo "Note: 'ruff' is not installed via uv. Run: uv tool install ruff"
+    fi
+fi
+
+# Check pnpm and tsserver
+if ! command -v pnpm &> /dev/null; then
+    echo "Warning: 'pnpm' not found. TypeScript support may be limited."
+else
+    # Check if tsserver is in the pnpm global bin or path
+    if ! command -v tsserver &> /dev/null && [ ! -f "$HOME/.local/share/pnpm/tsserver" ]; then
+        echo "Note: 'tsserver' not found in pnpm. Run: pnpm add -g typescript typescript-language-server"
+    fi
+fi
+
 echo "Running Neovim configuration install script..."
 echo "Config source directory: $SCRIPT_DIR"
 echo "Config target directory: $NVIM_CONFIG_DIR"

@@ -8,5 +8,6 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     vim.lsp.config('ruff', {})
+    vim.lsp.enable('ruff')
   end,
 }

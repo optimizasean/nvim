@@ -6,12 +6,8 @@
 -- ================================================
 return {
   'neovim/nvim-lspconfig',
-  opts = {
-    servers = {
-      pyright = {},
-    },
-  },
   config = function()
     vim.lsp.config('pyright', {})
+    vim.lsp.enable('pyright')
   end,
 }

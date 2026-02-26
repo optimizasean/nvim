@@ -176,6 +176,66 @@ Plugins for note-taking and knowledge management.
 
 ---
 
+## LSP & Tool Management
+
+My philosophy is to manage primary language tools externally (via `uv`, `pnpm`, `cargo`) for consistency across my system, while keeping `mason.nvim` for one-off needs.
+
+### External Installations (Primary)
+
+These tools are installed globally on the system. Neovim's `nvim-lspconfig` is configured to pick them up from the `$PATH`.
+
+#### Python (via `uv`)
+
+Managed by [uv](https://github.com/astral-sh/uv).
+
+```bash
+uv tool install pyright
+uv tool install ruff
+```
+- **Mason alternative:** `:MasonInstall pyright ruff`
+
+#### Rust (via `rustup` / `cargo`)
+
+Managed by [rustup](https://rustup.rs/).
+
+```bash
+rustup component add rust-analyzer
+# OR
+cargo install rust-analyzer
+```
+- **Mason alternative:** `:MasonInstall rust-analyzer`
+
+#### TypeScript / JavaScript (via `pnpm`)
+
+Managed by [pnpm](https://pnpm.io/).
+
+```bash
+pnpm add -g typescript typescript-language-server
+```
+- **Mason alternative:** `:MasonInstall typescript-language-server`
+
+#### Others (via `mason.nvim`)
+
+The following are automatically managed and installed by Mason in this config:
+- **GraphQL:** `graphql`
+- **YAML / Kubernetes:** `yamlls`
+- **Markdown:** `marksman`
+- **Docker:** `dockerls`, `docker_compose_language_service`
+- **TOML:** `taplo`
+- **JSON (`package.json`):** `jsonls`
+- **Lua:** `lua_ls`
+
+### Mason for "One-Offs"
+
+If I need to work in a language I don't use regularly (e.g., Go, Zig, C#, or Terraform), I use `mason.nvim` to install the server temporarily without polluting my global system tools.
+
+1.  Open Mason: `:Mason`
+2.  Find a tool: Press `/` to search.
+3.  Install: Press `i` on the tool.
+4.  Neovim will automatically attempt to use it if `lspconfig` is configured for that language.
+
+---
+
 ## Available Commands
 
 This section provides a quick reference for the most important `:Commands` for each tool. These commands allow you to manually trigger plugin features.
