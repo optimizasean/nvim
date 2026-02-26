@@ -411,26 +411,64 @@ Hotkey mappings provided or overridden by installed plugins. These enhance speci
 | 🛠️ | `<leader>no` | Open NvimTree |
 | 🛠️ | `<leader>nc` | Close NvimTree |
 | 🛠️ | `<leader>nr` | Refresh NvimTree |
-| 📦 | `g?` | Show internal mappings |
-| 📦 | `<CR>` or `o` | Open |
-| 📦 | `<C-]>` | CD |
-| 📦 | `<C-v>` | Open Vertical Split |
-| 📦 | `<C-x>` | Open Horizontal Split |
-| 📦 | `<C-t>` | Open Tab |
-| 📦 | `<Tab>` | Preview |
-| 📦 | `R` | Refresh |
-| 📦 | `a` | Create |
+| 📦 | `g?` | Toggle Help |
+| 📦 | `<CR>` | Open |
+| 📦 | `o` | Open |
+| 📦 | `<Tab>` | Open Preview |
+| 📦 | `<C-v>` | Open: Vertical Split |
+| 📦 | `<C-x>` | Open: Horizontal Split |
+| 📦 | `<C-t>` | Open: New Tab |
+| 📦 | `<C-e>` | Open: In Place |
+| 📦 | `O` | Open: No Window Picker |
+| 📦 | `a` | Create File Or Directory |
 | 📦 | `d` | Delete |
+| 📦 | `D` | Trash |
 | 📦 | `r` | Rename |
+| 📦 | `e` | Rename: Basename |
+| 📦 | `u` | Rename: Full Path |
+| 📦 | `<C-r>` | Rename: Omit Filename |
 | 📦 | `x` | Cut |
 | 📦 | `c` | Copy |
 | 📦 | `p` | Paste |
 | 📦 | `y` | Copy Name |
 | 📦 | `Y` | Copy Relative Path |
 | 📦 | `gy` | Copy Absolute Path |
-| 📦 | `I` | Toggle Git Ignore |
-| 📦 | `H` | Toggle Dotfiles |
+| 📦 | `ge` | Copy Basename |
+| 📦 | `R` | Refresh |
+| 📦 | `-` | Up (Root to Parent) |
+| 📦 | `<C-]>` | CD (Root to Node) |
+| 📦 | `<BS>` | Close Directory |
+| 📦 | `P` | Parent Directory |
+| 📦 | `K` | First Sibling |
+| 📦 | `J` | Last Sibling |
+| 📦 | `>` | Next Sibling |
+| 📦 | `<` | Previous Sibling |
+| 📦 | `]c` | Next Git Item |
+| 📦 | `[c` | Previous Git Item |
+| 📦 | `]e` | Next Diagnostic |
+| 📦 | `[e` | Previous Diagnostic |
+| 📦 | `f` | Live Filter: Start |
+| 📦 | `F` | Live Filter: Clear |
+| 📦 | `H` | Toggle Filter: Dotfiles |
+| 📦 | `I` | Toggle Filter: Git Ignore |
+| 📦 | `U` | Toggle Filter: Hidden |
+| 📦 | `C` | Toggle Filter: Git Clean |
+| 📦 | `B` | Toggle Filter: No Buffer |
+| 📦 | `M` | Toggle Filter: No Bookmark |
+| 📦 | `L` | Toggle Group Empty |
+| 📦 | `E` | Expand All |
+| 📦 | `W` | Collapse All |
+| 📦 | `S` | Search |
+| 📦 | `s` | Run System |
+| 📦 | `.` | Run Command |
+| 📦 | `m` | Toggle Bookmark |
+| 📦 | `bmv` | Move Bookmarked |
+| 📦 | `bt` | Trash Bookmarked |
+| 📦 | `bd` | Delete Bookmarked |
 | 📦 | `q` | Close |
+| 📦 | `<C-k>` | Info |
+| 📦 | `<2-LeftMouse>` | Open |
+| 📦 | `<2-RightMouse>` | CD |
 
 #### `telescope.nvim`
 
