@@ -10,6 +10,7 @@ return {
   config = function()
     -- Use typescript-tools setup instead of lspconfig.ts_ls.setup
     require('typescript-tools').setup({
+      tsserver_path = "/home/optimizasean/.local/share/pnpm/tsserver",
       on_attach = function(client, bufnr)
         -- Custom keymaps for TS
         local opts = { buffer = bufnr }
