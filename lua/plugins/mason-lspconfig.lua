@@ -19,7 +19,7 @@ return {
       'taplo',
       'jsonls',
       'lua_ls',
-      'volar',
+      'vue_ls', -- volar is called vue_ls in the current Mason registry
       'tailwindcss',
       'html',
       'cssls',
@@ -31,8 +31,9 @@ return {
 
     -- Set up servers using Neovim 0.11+ native LSP config
     for _, server in ipairs(servers) do
-      vim.lsp.config(server, {})
-      vim.lsp.enable(server)
+      local lsp_name = server == 'vue_ls' and 'volar' or server
+      vim.lsp.config(lsp_name, {})
+      vim.lsp.enable(lsp_name)
     end
   end
 }
