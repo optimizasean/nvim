@@ -13,17 +13,6 @@ return {
     'williamboman/mason-lspconfig.nvim',
   },
   config = function()
-    -- Set up mason.nvim
-    require('mason').setup()
-
-    -- Set up mason-lspconfig.nvim
-    -- This plugin ensures that any servers you install with Mason
-    -- are automatically configured by lspconfig.
-    require('mason-lspconfig').setup({
-      -- You can list servers here to ensure they are installed
-      -- Example: ensure_installed = { 'lua_ls', 'tsserver' }
-    })
-
     -- Basic lspconfig setup.
     -- lspconfig will now automatically pick up servers installed via Mason.
 
