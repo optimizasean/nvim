@@ -19,6 +19,10 @@ return {
       'taplo',
       'jsonls',
       'lua_ls',
+      'volar',
+      'tailwindcss',
+      'html',
+      'cssls',
     }
 
     mason_lspconfig.setup({
