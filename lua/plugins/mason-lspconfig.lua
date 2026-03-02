@@ -23,6 +23,9 @@ return {
       'tailwindcss',
       'html',
       'cssls',
+      'ts_ls',
+      'ruff',
+      'pyright',
     }
 
     mason_lspconfig.setup({
@@ -32,8 +35,22 @@ return {
     -- Set up servers using Neovim 0.11+ native LSP config
     for _, server in ipairs(servers) do
       local lsp_name = server == 'vue_ls' and 'volar' or server
-      vim.lsp.config(lsp_name, {})
-      vim.lsp.enable(lsp_name)
+      
+      -- typescript-tools.nvim manages ts_ls setup, so we only use mason to install it
+      if server ~= 'ts_ls' then
+        local config = {}
+        
+        -- Neovim 0.11+ requires cmd to be set if not using a custom setup function
+        -- and the binary name doesn't match the server name perfectly
+        if lsp_name == 'lua_ls' then
+          config.cmd = { 'lua-language-server' }
+        elseif lsp_name == 'volar' then
+          config.cmd = { 'vue-language-server', '--stdio' }
+        end
+
+        vim.lsp.config(lsp_name, config)
+        vim.lsp.enable(lsp_name)
+      end
     end
   end
 }
