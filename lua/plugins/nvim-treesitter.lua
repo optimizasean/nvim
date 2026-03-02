@@ -13,7 +13,18 @@ return {
   config = function()
     require('nvim-treesitter.configs').setup({
       ensure_installed = 'all',
-      ignore_install = { 'phpdoc', 'hoon', 'ipkg', 'norg' },
+      ignore_install = {
+        'hoon',
+        'ipkg',
+        'mlir',
+        'norg',
+        'ocamllex',
+        'phpdoc',
+        'scfg',
+        'swift',
+        'teal',
+        'unison'
+      },
       sync_install = false,
       autopairs = {
         enable = false,
