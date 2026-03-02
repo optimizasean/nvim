@@ -14,7 +14,8 @@ return {
     -- Try to find the vue-language-server package in Mason
     local ok, vue_ls = pcall(mason_registry.get_package, "vue-language-server")
     if ok and vue_ls:is_installed() then
-      vue_plugin_path = vue_ls:get_install_path() .. "/node_modules/@vue/typescript-plugin"
+      local mason_packages_path = vim.fn.stdpath("data") .. "/mason/packages"
+      vue_plugin_path = mason_packages_path .. "/vue-language-server/node_modules/@vue/typescript-plugin"
     end
 
     -- Use typescript-tools setup instead of lspconfig.ts_ls.setup
