@@ -197,49 +197,23 @@ Plugins for note-taking and knowledge management.
 
 ## LSP & Tool Management
 
-My philosophy is to manage primary language tools externally (via `uv`, `pnpm`, `cargo`) for consistency across my system, while keeping `mason.nvim` for one-off needs.
+By default, language servers, linters, and formatters are **installed and run through mason.nvim**. This approach is highly recommended due to its isolated environment, which prevents global pathing issues, "version hell," and ensures that Neovim plugins can reliably find the correct internal files (like `tsserver.js`).
 
-### External Installations (Primary)
+However, you can still choose to install and configure custom tools globally using package managers. If you prefer that route, you will need to modify the configurations (e.g., `lua/plugins/typescript-tools.lua` or `lua/plugins/mason-lspconfig.lua`) to explicitly resolve those global binaries from your `$PATH` instead of falling back to Mason.
 
-These tools are installed globally on the system. Neovim's `nvim-lspconfig` is configured to pick them up from the `$PATH`.
+### Global Installation Alternatives
+If you opt out of Mason for specific tools, you can install them globally via:
+- [**uv**](https://github.com/astral-sh/uv): `uv tool install pyright ruff`
+- [**cargo** / **rustup**](https://rustup.rs/): `rustup component add rust-analyzer`
+- [**pnpm**](https://pnpm.io/): `pnpm add -g typescript typescript-language-server`
 
-#### Python (via `uv`)
+### Managed by Mason (Default)
 
-Managed by [uv](https://github.com/astral-sh/uv).
+The following tools are automatically installed and managed by Mason in this configuration via `mason-lspconfig.nvim`:
 
-```bash
-uv tool install pyright
-uv tool install ruff
-```
-
-- **Mason alternative:** `:MasonInstall pyright ruff`
-
-#### Rust (via `rustup` / `cargo`)
-
-Managed by [rustup](https://rustup.rs/).
-
-```bash
-rustup component add rust-analyzer
-# OR
-cargo install rust-analyzer
-```
-
-- **Mason alternative:** `:MasonInstall rust-analyzer`
-
-#### TypeScript / JavaScript (via `pnpm`)
-
-Managed by [pnpm](https://pnpm.io/).
-
-```bash
-pnpm add -g typescript typescript-language-server
-```
-
-- **Mason alternative:** `:MasonInstall typescript-language-server`
-
-#### Others (via `mason.nvim`)
-
-The following are automatically managed and installed by Mason in this config:
-
+- **TypeScript / JavaScript:** `ts_ls` (configured by `typescript-tools.nvim`)
+- **Python:** `pyright`, `ruff`
+- **Rust:** `rust-analyzer` (typically handled by `rustaceanvim`)
 - **GraphQL:** `graphql`
 - **YAML / Kubernetes:** `yamlls`
 - **Markdown:** `marksman`
@@ -247,10 +221,13 @@ The following are automatically managed and installed by Mason in this config:
 - **TOML:** `taplo`
 - **JSON (`package.json`):** `jsonls`
 - **Lua:** `lua_ls`
+- **Vue:** `vue_ls` (volar)
+- **Tailwind:** `tailwindcss`
+- **HTML / CSS:** `html`, `cssls`
 
-### Mason for "One-Offs"
+### Using Mason for Extra Tools
 
-If I need to work in a language I don't use regularly (e.g., Go, Zig, C#, or Terraform), I use `mason.nvim` to install the server temporarily without polluting my global system tools.
+If you need to work in a language not listed above (e.g., Go, Zig, C#, or Terraform), you can use `mason.nvim` to install the server easily without polluting your global system tools.
 
 1.  Open Mason: `:Mason`
 2.  Find a tool: Press `/` to search.

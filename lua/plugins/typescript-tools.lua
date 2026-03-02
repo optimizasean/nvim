@@ -20,7 +20,6 @@ return {
 
     -- Use typescript-tools setup instead of lspconfig.ts_ls.setup
     require('typescript-tools').setup({
-      tsserver_path = "/home/optimizasean/.local/share/pnpm/tsserver",
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -43,11 +42,7 @@ return {
         -- publish_diagnostic_on = 'insert_leave',
         expose_as_code_action = 'all',
         tsserver_plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vue_plugin_path,
-            languages = { "vue" },
-          },
+          "@vue/typescript-plugin",
         },
         tsserver_file_config = {
           includeInlayParameterNameHints = 'all',
