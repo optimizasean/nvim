@@ -1,0 +1,112 @@
+# globs:
+  # - "**/*.md"
+# ignores:
+  # - file.md
+
+config:
+  # Markdownlint configuration
+  # For full rule descriptions, see: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+  
+  default: true
+  
+  # MD001: true # heading-increment - Heading levels should only increment by one level at a time
+  # MD002: true # first-heading-h1 - First heading should be a top-level heading
+  MD003:
+    style: atx # heading-style - Heading style (consistent use of ATX # or Setext ===)
+  MD004:
+    style: dash # ul-style - Unordered list style (consistent use of *, -, or +)
+  # MD005: true # list-indent - Inconsistent indentation for list items at the same level
+  # MD006: true # ul-start-left - Consider starting bulleted lists at the beginning of the line
+  MD007:
+    indent: 4 # ul-indent - Unordered list indentation
+    start_indented: false # ul-indent - Unordered list indentation
+  # MD009: true # no-trailing-spaces - Trailing spaces
+  # MD010: true # no-hard-tabs - Hard tabs (use spaces instead)
+  # MD011: true # no-reversed-links - Reversed link syntax
+  # MD012: true # no-multiple-blanks - Multiple consecutive blank lines
+  MD013: false # line-length - Line length (default 80 characters)
+  # MD014: true # commands-show-output - Dollar signs used before commands without showing output
+  # MD018: true # no-space-after-hash - No space after hash on ATX style heading
+  # MD019: true # no-multiple-space-atx - Multiple spaces after hash on ATX style heading
+  # MD020: true # no-missing-space-closed-atx - No space inside hashes on closed ATX style heading
+  # MD021: true # no-multiple-space-closed-atx - Multiple spaces inside hashes on closed ATX style heading
+  # MD022: true # blanks-around-headings - Headings should be surrounded by blank lines
+  # MD023: true # heading-start-left - Headings must start at the beginning of the line
+  # MD024: true # no-duplicate-heading - Multiple headings with the same content
+  # MD025: true # single-title/single-h1 - Multiple top-level headings in the same document
+  MD026: true # no-trailing-punctuation - Trailing punctuation in heading (Allow no symbols in headers)
+  # MD027: true # no-multiple-space-blockquote - Multiple spaces after blockquote symbol
+  # MD028: true # no-blanks-blockquote - Blank line inside blockquote
+  # MD029: true # ol-prefix - Ordered list item prefix
+  # MD030: true # list-marker-space - Spaces after list markers
+  # MD031: true # blanks-around-fences - Fenced code blocks should be surrounded by blank lines
+  # MD032: true # blanks-around-lists - Lists should be surrounded by blank lines
+  # MD033: true # no-inline-html - Inline HTML (disallows raw HTML tags)
+  # MD034: true # no-bare-urls - Bare URL used
+  # MD035: true # hr-style - Horizontal rule style consistency
+  MD036: false # no-emphasis-as-heading - Emphasis used instead of a heading
+  # MD037: true # no-space-in-emphasis - Spaces inside emphasis markers
+  # MD038: true # no-space-in-code - Spaces inside code span elements
+  # MD039: true # no-space-in-links - Spaces inside link text
+  # MD040: true # fenced-code-language - Fenced code blocks should have a language specified
+  # MD041: true # first-line-heading - First line in file should be a top-level heading
+  # MD042: true # no-empty-links - No empty links
+  MD043:
+    headings:
+      - "# README"
+      - "## Index"
+      - "## Legend"
+      - "## Structure"
+      - "## Installation"
+      - "## Plugins"
+      - "### Core & Library"
+      - "### UI"
+      - "### File Navigation"
+      - "### Git"
+      - "### LSP (Language Server Protocol)"
+      - "### Editing"
+      - "### Language Specific"
+      - "### AI"
+      - "### Note Taking"
+      - "### LSP & Tool Management"
+      - "### Global Installation Alternatives"
+      - "### Managed by Mason (Default)"
+      - "### Using Mason for Extra Tools"
+      - "## Available Commands"
+      - "## Hotkey Mappings"
+      - "### Neovim Default Mappings"
+      - "#### Motion"
+      - "#### Editing (Default)"
+      - "#### Visual Mode"
+      - "#### Search & Replace"
+      - "#### Windows & Tabs"
+      - "#### LSP & Diagnostics (Neovim Defaults)"
+      - "### Custom Core Mappings"
+      - "### Plugin Mappings"
+      - "*"
+  # MD044: true # proper-names - Proper names should have the correct capitalization
+  # MD045: true # no-alt-text - Images should have alternate text (alt text)
+  # MD046: true # code-block-style - Code block style
+  # MD047: true # single-trailing-newline - Files should end with a single newline character
+  # MD048: true # code-fence-style - Code fence style
+  MD049:
+    style: asterisk # emphasis-style - Emphasis style (italics)
+  MD050:
+    style: asterisk # strong-style - Strong style (bold)
+  # MD051: true # link-fragments - Link fragments should be valid
+  # MD052: true # reference-links-images - Reference links and images should use a label that is defined
+  # MD053: true # link-image-reference-definitions - Link and image reference definitions should be used
+  MD054:
+    autolink: false # link-image-style - No autolinks (<url>)
+    collapsed: false # link-image-style - No collapsed reference links ([text][])
+    shortcut: false # link-image-style - No shortcut reference links ([text])
+    inline: true # link-image-style - Inline links are allowed
+    url_inline: true # link-image-style - URL inline is allowed
+  MD055:
+    style: leading_and_trailing # table-pipe-style - Table delimiter should be pipe char
+  # MD056: true # table-column-count - Table column count
+  # MD058: true # modal-network-boundary - Modal network boundary
+  # MD059: false # descriptive-link-text
+  MD060:
+    style: aligned # table-column-style - Table column style should be left aligned
+    aligned_delimiter: true
