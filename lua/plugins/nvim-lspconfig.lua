@@ -3,6 +3,10 @@
 -- https://github.com/neovim/nvim-lspconfig
 --
 -- Quickstart configs for Nvim LSP.
+--
+-- ⚠️ This plugin is interdependent with Mason.
+-- 🛠️ Mason handles the installation and management of LSP servers.
+-- ⚙️ Individual configurations for each server are located in lua/plugins/lsp/
 -- ================================================
 return {
   'neovim/nvim-lspconfig',

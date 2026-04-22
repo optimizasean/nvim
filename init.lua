@@ -26,7 +26,10 @@ require('core.keymaps')
 
 -- 'plugins' is the directory name under lua/
 -- lazy.nvim will automatically load all *.lua files from lua/plugins/
-require('lazy').setup('plugins', {
+require('lazy').setup({
+  { import = 'plugins' },
+  { import = 'plugins.lsp' },
+}, {
   -- You can add any lazy.nvim options here
   checker = {
     enabled = true,

@@ -4,9 +4,13 @@
 --
 -- Supercharge your Rust experience in Neovim!
 -- A heavily modified fork of rust-tools.nvim
+--
+-- ⚠️ Plugin managed via Lazy.nvim
+-- ⚠️ Server (rust-analyzer) managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
   'mrcjkb/rustaceanvim',
+  name = 'rustaceanvim',
   version = '^5', -- Recommended
   lazy = false, -- This plugin is already lazy
   config = function()

@@ -35,7 +35,6 @@ Terminal tools you will probably need fzf, rg, rust-analyzer, ruff, ...maybe som
     - [Git](#git)
     - [LSP (Language Server Protocol)](#lsp-language-server-protocol)
     - [Editing](#editing)
-    - [Language Specific](#language-specific)
     - [AI](#ai)
     - [Note Taking](#note-taking)
 - [Available Commands](#available-commands)
@@ -81,6 +80,8 @@ The configuration is broken into a modular structure for ease of reading and mai
 - `lua/core/options.lua`: Contains all global `vim.opt` settings.
 - `lua/core/keymaps.lua`: Defines global keymappings that aren't tied to a specific plugin.
 - `lua/plugins/`: This directory holds all plugin specifications. Each `.lua` file in this directory defines a single plugin (or a related group) for `lazy.nvim` to load.
+- `lua/plugins/lsp/`: Dedicated directory for Language Server Protocol (LSP) configurations.
+- `lua/plugins/disabled/`: Contains plugins that are currently disabled.
 
 ## Installation
 
@@ -144,16 +145,52 @@ Plugins for Git integration and version control.
 
 ### LSP (Language Server Protocol)
 
-Plugins related to the Language Server Protocol for code intelligence.
+These are the foundational plugins for Neovim's LSP ecosystem.
 
 | Plugin | Source                 | Description                                                                                 |                                                                |
 |--------|------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | ✅     | `mason.nvim`           | [`williamboman/mason.nvim`](https://github.com/williamboman/mason.nvim)                     | Manages LSP servers, linters, and formatters automatically.    |
 | ✅     | `mason-lspconfig.nvim` | [`williamboman/mason-lspconfig.nvim`](https://github.com/williamboman/mason-lspconfig.nvim) | Bridges `mason.nvim` with `nvim-lspconfig`.                    |
 | ✅     | `nvim-lspconfig`       | [`neovim/nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig)                         | Provides the default configurations for Neovim's built-in LSP. |
-| ✅     | `pyright`              | [`microsoft/pyright`](https://github.com/microsoft/pyright)                                 | Static type checker for Python.                                |
-| ✅     | `ruff`                 | [`astral-sh/ruff-lsp`](https://github.com/astral-sh/ruff-lsp)                               | LSP implementation for Ruff.                                   |
-| ❌     | `roslyn.nvim`          | [`seblj/roslyn.nvim`](https://github.com/seblj/roslyn.nvim)                                 | C# Roslyn experience in Neovim.                                |
+
+#### LSP Plugins
+
+These are specialized plugins that provide enhanced language support or unique features.
+
+| Plugin | Source                  | Description                                                                       |                                                       |
+|--------|-------------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------|
+| ✅     | `typescript-tools.nvim` | [`pmizio/typescript-tools.nvim`](https://github.com/pmizio/typescript-tools.nvim) | Comprehensive TypeScript integration for Neovim.      |
+| ✅     | `rustaceanvim`          | [`mrcjkb/rustaceanvim`](https://github.com/mrcjkb/rustaceanvim)                   | Supercharge your Rust experience in Neovim.           |
+| ❌     | `crates.nvim`           | [`saecki/crates.nvim`](https://github.com/saecki/crates.nvim)                     | Helps manage Rust dependencies in `Cargo.toml` files. |
+
+#### LSP Configurations
+
+My LSP setup is highly modular. While Mason handles installation, the actual server configurations (including `pyright`, `ruff`, and others) are stored in individual files under `lua/plugins/lsp/`.
+
+> [!IMPORTANT]
+> **Modular Configuration:** Individual server configurations are stored in `lua/plugins/lsp/`.
+
+The following tools are automatically installed via `mason-lspconfig.nvim` and configured via their respective files in `lua/plugins/lsp/`:
+
+- **TypeScript / JavaScript:** `ts_ls` (configured by `typescript-tools.nvim`)
+- **Python:** `pyright`, `ruff`
+- **Rust:** `rust-analyzer` (typically handled by `rustaceanvim`)
+- **GraphQL:** `graphql`
+- **YAML / Kubernetes:** `yamlls`
+- **Markdown:** `marksman`
+- **Docker:** `dockerls`, `docker_compose_language_service`
+- **TOML:** `taplo`
+- **JSON (`package.json`):** `jsonls`
+- **Lua:** `lua_ls`
+- **Vue:** `vue_ls`
+- **Tailwind:** `tailwindcss`
+- **HTML / CSS:** `html`, `cssls`
+
+> [!NOTE]
+> **Interdependency:** Mason and `nvim-lspconfig` work together.
+>
+> - **Mason:** Manages the *installation* of the server binaries.
+> - **LSP Files (`lua/plugins/lsp/`):** Manage the *configuration* and activation of those servers using Neovim's native LSP API.
 
 ### Editing
 
@@ -166,16 +203,6 @@ Plugins that enhance the day-to-day text editing experience.
 | ✅     | `silicon.nvim`     | [`krivahtoo/silicon.nvim`](https://github.com/krivahtoo/silicon.nvim) | Generates beautiful code screenshots from within Neovim.  |
 | ❌     | `nvim-autopairs`   | [`windwp/nvim-autopairs`](https://github.com/windwp/nvim-autopairs)   | Autopairs for Neovim written in Lua.                      |
 | ❌     | `instant.nvim`     | [`jbyuki/instant.nvim`](https://github.com/jbyuki/instant.nvim)       | A plugin for collaborative editing.                       |
-
-### Language Specific
-
-Plugins built for a specific programming language.
-
-| Plugin | Source                  | Description                                                                       |                                                       |
-|--------|-------------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------|
-| ✅     | `rustaceanvim`          | [`mrcjkb/rustaceanvim`](https://github.com/mrcjkb/rustaceanvim)                   | Supercharge your Rust experience in Neovim.           |
-| ✅     | `typescript-tools.nvim` | [`pmizio/typescript-tools.nvim`](https://github.com/pmizio/typescript-tools.nvim) | Comprehensive TypeScript integration for Neovim.      |
-| ❌     | `crates.nvim`           | [`saecki/crates.nvim`](https://github.com/saecki/crates.nvim)                     | Helps manage Rust dependencies in `Cargo.toml` files. |
 
 ### AI
 
@@ -200,7 +227,13 @@ Plugins for note-taking and knowledge management.
 
 By default, language servers, linters, and formatters are **installed and run through mason.nvim**. This approach is highly recommended due to its isolated environment, which prevents global pathing issues, "version hell," and ensures that Neovim plugins can reliably find the correct internal files (like `tsserver.js`).
 
-However, you can still choose to install and configure custom tools globally using package managers. If you prefer that route, you will need to modify the configurations (e.g., `lua/plugins/typescript-tools.lua` or `lua/plugins/mason-lspconfig.lua`) to explicitly resolve those global binaries from your `$PATH` instead of falling back to Mason.
+> [!NOTE]
+> **Interdependency:** Mason and `nvim-lspconfig` work together.
+>
+> - **Mason:** Manages the *installation* of the server binaries.
+> - **LSP Files (`lua/plugins/lsp/`):** Manage the *configuration* and activation of those servers using Neovim's native LSP API.
+
+However, you can still choose to install and configure custom tools globally using package managers. If you prefer that route, you will need to modify the configurations (e.g., `lua/plugins/lsp/typescript-tools.lua` or `lua/plugins/mason-lspconfig.lua`) to explicitly resolve those global binaries from your `$PATH` instead of falling back to Mason.
 
 ### Global Installation Alternatives
 
@@ -212,7 +245,7 @@ If you opt out of Mason for specific tools, you can install them globally via:
 
 ### Managed by Mason (Default)
 
-The following tools are automatically installed and managed by Mason in this configuration via `mason-lspconfig.nvim`:
+The following tools are automatically installed and managed by Mason in this configuration via `mason-lspconfig.nvim`. Their individual configurations can be found in `lua/plugins/lsp/`:
 
 - **TypeScript / JavaScript:** `ts_ls` (configured by `typescript-tools.nvim`)
 - **Python:** `pyright`, `ruff`
@@ -224,7 +257,7 @@ The following tools are automatically installed and managed by Mason in this con
 - **TOML:** `taplo`
 - **JSON (`package.json`):** `jsonls`
 - **Lua:** `lua_ls`
-- **Vue:** `vue_ls` (volar)
+- **Vue:** `vue_ls`
 - **Tailwind:** `tailwindcss`
 - **HTML / CSS:** `html`, `cssls`
 

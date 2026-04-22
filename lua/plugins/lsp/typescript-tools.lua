@@ -1,11 +1,15 @@
 -- ================================================
--- typescript-tools.nvim
+-- typescript-tools
 -- https://github.com/pmizio/typescript-tools.nvim
 --
 -- ⚡ TypeScript integration NeoVim deserves ⚡
+--
+-- ⚠️ Plugin managed via Lazy.nvim
+-- ⚠️ Server (ts_ls) managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
   'pmizio/typescript-tools.nvim',
+  name = 'typescript-tools',
   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
   config = function()
     local mason_registry = require("mason-registry")
@@ -42,7 +46,11 @@ return {
         -- publish_diagnostic_on = 'insert_leave',
         expose_as_code_action = 'all',
         tsserver_plugins = {
-          "@vue/typescript-plugin",
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_plugin_path,
+            languages = { "vue" },
+          },
         },
         tsserver_file_config = {
           includeInlayParameterNameHints = 'all',
