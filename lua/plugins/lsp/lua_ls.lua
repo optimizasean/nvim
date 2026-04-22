@@ -7,8 +7,8 @@
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
+  'neovim/nvim-lspconfig',
   name = 'lua_ls',
-  dependencies = { 'neovim/nvim-lspconfig' },
   config = function()
     local config = {
       cmd = { 'lua-language-server' },

@@ -22,6 +22,11 @@ return {
       vue_plugin_path = mason_packages_path .. "/vue-language-server/node_modules/@vue/typescript-plugin"
     end
 
+    local tsserver_plugins = {}
+    if vue_plugin_path ~= "" then
+      table.insert(tsserver_plugins, vue_plugin_path)
+    end
+
     -- Use typescript-tools setup instead of lspconfig.ts_ls.setup
     require('typescript-tools').setup({
       filetypes = {
@@ -45,13 +50,7 @@ return {
         separate_diagnostic_server = true,
         -- publish_diagnostic_on = 'insert_leave',
         expose_as_code_action = 'all',
-        tsserver_plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vue_plugin_path,
-            languages = { "vue" },
-          },
-        },
+        tsserver_plugins = tsserver_plugins,
         tsserver_file_config = {
           includeInlayParameterNameHints = 'all',
           includeInlayFunctionParameterTypeHints = true,

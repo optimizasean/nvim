@@ -1,15 +1,13 @@
 -- ================================================
 -- taplo
--- https://github.com/tamasfe/taplo
---
--- Taplo (TOML)
+-- (See lua/plugins/mason-lspconfig.lua for installation)
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
+  'neovim/nvim-lspconfig',
   name = 'taplo',
-  dependencies = { 'neovim/nvim-lspconfig' },
-  config = function()
+    config = function()
     vim.lsp.config('taplo', {})
     vim.lsp.enable('taplo')
   end

@@ -1,15 +1,13 @@
 -- ================================================
 -- marksman
--- https://github.com/artempyanykh/marksman
---
--- Marksman (Markdown)
+-- (See lua/plugins/mason-lspconfig.lua for installation)
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
+  'neovim/nvim-lspconfig',
   name = 'marksman',
-  dependencies = { 'neovim/nvim-lspconfig' },
-  config = function()
+    config = function()
     vim.lsp.config('marksman', {})
     vim.lsp.enable('marksman')
   end

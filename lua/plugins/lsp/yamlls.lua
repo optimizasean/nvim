@@ -1,15 +1,13 @@
 -- ================================================
 -- yamlls
--- https://github.com/redhat-developer/yaml-language-server
---
--- YAML Language Server
+-- (See lua/plugins/mason-lspconfig.lua for installation)
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
+  'neovim/nvim-lspconfig',
   name = 'yamlls',
-  dependencies = { 'neovim/nvim-lspconfig' },
-  config = function()
+    config = function()
     vim.lsp.config('yamlls', {})
     vim.lsp.enable('yamlls')
   end

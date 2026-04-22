@@ -1,15 +1,13 @@
 -- ================================================
 -- pyright
--- https://github.com/microsoft/pyright
---
--- Pyright (Python)
+-- (See lua/plugins/mason-lspconfig.lua for installation)
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
+  'neovim/nvim-lspconfig',
   name = 'pyright',
-  dependencies = { 'neovim/nvim-lspconfig' },
-  config = function()
+    config = function()
     vim.lsp.config('pyright', {})
     vim.lsp.enable('pyright')
   end

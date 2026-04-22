@@ -26,7 +26,7 @@ return {
       'html',
       'cssls',
       'ts_ls',
-      'rust-analyzer',
+      'rust_analyzer',
       'ruff',
       'pyright',
     }

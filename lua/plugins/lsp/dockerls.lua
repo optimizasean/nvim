@@ -7,8 +7,8 @@
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
 return {
+  'neovim/nvim-lspconfig',
   name = 'dockerls',
-  dependencies = { 'neovim/nvim-lspconfig' },
   config = function()
     vim.lsp.config('dockerls', {})
     vim.lsp.enable('dockerls')
