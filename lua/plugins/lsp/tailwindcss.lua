@@ -4,11 +4,7 @@
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
-return {
-  'neovim/nvim-lspconfig',
-  name = 'tailwindcss',
-    config = function()
-    vim.lsp.config('tailwindcss', {})
-    vim.lsp.enable('tailwindcss')
-  end
-}
+return function()
+  vim.lsp.config('tailwindcss', {})
+  vim.lsp.enable('tailwindcss')
+end

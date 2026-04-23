@@ -6,11 +6,7 @@
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
-return {
-  'neovim/nvim-lspconfig',
-  name = 'graphql',
-  config = function()
-    vim.lsp.config('graphql', {})
-    vim.lsp.enable('graphql')
-  end
-}
+return function()
+  vim.lsp.config('graphql', {})
+  vim.lsp.enable('graphql')
+end

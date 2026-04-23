@@ -28,7 +28,6 @@ require('core.keymaps')
 -- lazy.nvim will automatically load all *.lua files from lua/plugins/
 require('lazy').setup({
   { import = 'plugins' },
-  { import = 'plugins.lsp' },
 }, {
   -- You can add any lazy.nvim options here
   checker = {

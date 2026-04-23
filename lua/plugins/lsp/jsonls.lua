@@ -6,11 +6,7 @@
 --
 -- ⚠️ Server managed via Mason (see lua/plugins/mason-lspconfig.lua)
 -- ================================================
-return {
-  'neovim/nvim-lspconfig',
-  name = 'jsonls',
-  config = function()
-    vim.lsp.config('jsonls', {})
-    vim.lsp.enable('jsonls')
-  end
-}
+return function()
+  vim.lsp.config('jsonls', {})
+  vim.lsp.enable('jsonls')
+end

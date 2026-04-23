@@ -22,9 +22,10 @@ return {
       vue_plugin_path = mason_packages_path .. "/vue-language-server/node_modules/@vue/typescript-plugin"
     end
 
-    local tsserver_plugins = {}
+    -- Add the plugin directory to NODE_PATH so typescript-tools can find it
     if vue_plugin_path ~= "" then
-      table.insert(tsserver_plugins, vue_plugin_path)
+      local vue_plugin_dir = vim.fn.fnamemodify(vue_plugin_path, ":h")
+      vim.env.NODE_PATH = vue_plugin_dir .. (vim.env.NODE_PATH and (":" .. vim.env.NODE_PATH) or "")
     end
 
     -- Use typescript-tools setup instead of lspconfig.ts_ls.setup
@@ -50,7 +51,9 @@ return {
         separate_diagnostic_server = true,
         -- publish_diagnostic_on = 'insert_leave',
         expose_as_code_action = 'all',
-        tsserver_plugins = tsserver_plugins,
+        tsserver_plugins = {
+          "@vue/typescript-plugin",
+        },
         tsserver_file_config = {
           includeInlayParameterNameHints = 'all',
           includeInlayFunctionParameterTypeHints = true,

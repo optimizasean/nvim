@@ -32,7 +32,12 @@ return {
     }
 
     mason_lspconfig.setup({
-      ensure_installed = servers
+      ensure_installed = servers,
+      handlers = {
+        -- Explicitly disable the automatic setup for vue_ls 
+        -- so we can use our custom 'vue-language-server' config without warnings.
+        ["vue_ls"] = function() end,
+      }
     })
   end
 }

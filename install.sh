@@ -90,6 +90,8 @@ cp -f "$SCRIPT_DIR/init.lua" "$NVIM_CONFIG_DIR/init.lua"
 # Copy the *entire* lua directory recursively
 # This is more robust than copying file-by-file
 if [ -d "$SCRIPT_DIR/lua" ]; then
+    # Clean old lua directory to avoid stale files
+    rm -rf "$NVIM_CONFIG_DIR/lua"
     # -R = recursive, -f = force (overwrite)
     cp -R -f "$SCRIPT_DIR/lua" "$NVIM_CONFIG_DIR/"
 else

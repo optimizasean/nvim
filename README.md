@@ -174,7 +174,7 @@ The following tools are automatically installed via `mason-lspconfig.nvim` and c
 
 - **TypeScript / JavaScript:** `ts_ls` (configured by `typescript-tools.nvim`)
 - **Python:** `pyright`, `ruff`
-- **Rust:** `rust-analyzer` (typically handled by `rustaceanvim`)
+- **Rust:** `rust_analyzer` (typically handled by `rustaceanvim`)
 - **GraphQL:** `graphql`
 - **YAML / Kubernetes:** `yamlls`
 - **Markdown:** `marksman`
@@ -249,7 +249,7 @@ The following tools are automatically installed and managed by Mason in this con
 
 - **TypeScript / JavaScript:** `ts_ls` (configured by `typescript-tools.nvim`)
 - **Python:** `pyright`, `ruff`
-- **Rust:** `rust-analyzer` (typically handled by `rustaceanvim`)
+- **Rust:** `rust_analyzer` (typically handled by `rustaceanvim`)
 - **GraphQL:** `graphql`
 - **YAML / Kubernetes:** `yamlls`
 - **Markdown:** `marksman`
