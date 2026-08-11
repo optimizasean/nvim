@@ -53,3 +53,6 @@ opt.spell = false
 
 -- Backspace
 opt.backspace = { 'eol', 'start', 'indent' }
+
+-- Mouse
+opt.mousescroll = "ver:1,hor:6" -- default is "ver:3,hor:6"
